@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>晓风轻技术小站 | 接口定义</title>
+    <meta name="description" content="Just playing around">
+    
+    
+    <link rel="preload" href="/assets/css/3.styles.0b24920e.css" as="style"><link rel="preload" href="/assets/js/app.de346166.js" as="script"><link rel="preload" href="/assets/js/0.7c548f74.js" as="script"><link rel="prefetch" href="/assets/js/1.1a00e053.js"><link rel="prefetch" href="/assets/js/2.09811705.js">
+    <link rel="stylesheet" href="/assets/css/3.styles.0b24920e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      晓风轻技术小站
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link router-link-active">编程规范</a></div><div class="nav-item"><a href="/xiao/" class="nav-link">Vue框架学习</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link">External</a></div><a href="https://github.com/xwjie/PLMCodeTemplate" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link router-link-active">编程规范</a></div><div class="nav-item"><a href="/xiao/" class="nav-link">Vue框架学习</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link">External</a></div><a href="https://github.com/xwjie/PLMCodeTemplate" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>程序员你为什么这么累</span><!----></p><ul class="sidebar-group-items"><li><a href="/rule/" class="sidebar-link">导读</a></li><li><a href="/rule/rest-defined.html" class="active sidebar-link">接口定义</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="接口定义"><a href="#接口定义" aria-hidden="true" class="header-anchor">#</a> 接口定义</h1><p>工作中，少不了要定义各种接口，系统集成要定义接口，前后台掉调用也要定义接口。接口定义一定程度上能反应程序员的编程功底。列举一下工作中我发现大家容易出现的问题：</p><h1 id="_1-返回格式不统一"><a href="#_1-返回格式不统一" aria-hidden="true" class="header-anchor">#</a> 1. 返回格式不统一</h1><p>同一个接口，有时候返回数组，有时候返回单个；成功的时候返回对象，失败的时候返回错误信息字符串。工作中有个系统集成就是这样定义的接口，真是辣眼睛。这个对应代码上，返回的类型是map，json，object，都是不应该的。实际工作中，我们会定义一个统一的格式，就是ResultBean，分页的有另外一个PageResultBean</p><p>错误范例：</p><pre class="language-text"><code> //返回map可读性不好，尽量不要
+  @PostMapping(&quot;/delete&quot;)
+  public Map&lt;String, Object&gt; delete(long id, String lang) {
+
+  }
+
+  // 成功返回boolean，失败返回string，大忌
+  @PostMapping(&quot;/delete&quot;)
+  public Object delete(long id, String lang) {
+    try {
+      boolean result = configService.delete(id, local);
+      return result;
+    } catch (Exception e) {
+      log.error(e);
+      return e.toString();
+    }
+  }
+</code></pre><h1 id="_2-没有考虑失败情况"><a href="#_2-没有考虑失败情况" aria-hidden="true" class="header-anchor">#</a> 2. 没有考虑失败情况</h1><p>一开始只考虑成功场景，等后面测试发现有错误情况，怎么办，改接口呗，前后台都改，劳民伤财无用功。</p><p>错误范例：</p><pre class="language-text"><code> //不返回任何数据，没有考虑失败场景，容易返工
+　@PostMapping(&quot;/update&quot;)
+  public void update(long id, xxx) {
+
+  }
+</code></pre><p>#3. 出现和业务无关的输入参数</p><p>如lang语言，当前用户信息 都不应该出现参数里面，应该从当前会话里面获取。后面讲ThreadLocal会说到怎么样去掉。除了代码可读性不好问题外，尤其是参数出现当前用户信息的，这是个严重问题。</p><p>错误范例：</p><pre class="language-text"><code> // （当前用户删除数据）参数出现lang和userid，尤其是userid，大忌
+　@PostMapping(&quot;/delete&quot;)
+  public Map&lt;String, Object&gt; delete(long id, String lang, String userId) {
+
+  }
+</code></pre><h1 id="_4-出现复杂的输入参数"><a href="#_4-出现复杂的输入参数" aria-hidden="true" class="header-anchor">#</a> 4. 出现复杂的输入参数</h1><p>一般情况下，不允许出现例如json字符串这样的参数，这种参数可读性极差。应该定义对应的bean。</p><p>错误范例：</p><pre class="language-text"><code> // 参数出现json格式，可读性不好，代码也难看
+　@PostMapping(&quot;/update&quot;)
+  public Map&lt;String, Object&gt; update(long id, String jsonStr) {
+
+  }
+</code></pre><h1 id="_5-没有返回应该返回的数据"><a href="#_5-没有返回应该返回的数据" aria-hidden="true" class="header-anchor">#</a> 5. 没有返回应该返回的数据</h1><p>例如，新增接口一般情况下应该返回新对象的id标识，这需要编程经验。新手定义的时候因为前台没有用就不返回数据或者只返回true，这都是不恰当的。别人要不要是别人的事情，你该返回的还是应该返回。</p><p>错误范例：</p><pre class="language-text"><code> // 约定俗成，新建应该返回新对象的信息，只返回boolean容易导致返工
+　@PostMapping(&quot;/add&quot;)
+  public boolean add(xxx) {
+    //xxx
+    return configService.add();
+  }
+</code></pre><p>很多人看了我的这篇文章 <a href="https://www.imooc.com/article/27569" target="_blank" rel="noopener noreferrer">程序员你为什么这么累？</a>，都觉得里面的技术也很简单，没有什么特别的地方，但是，实现这个代码框架之前，就是要你的接口的统一的格式ResultBean，aop才好做。有些人误解了，我那篇文章说的都不是技术，重点说的是编码习惯工作方式，如果你重点还是放在什么技术上，那我也帮不了你了。同样，如果我后面的关于习惯和规范的帖子，你重点还是放在技术上的话，那是丢了西瓜捡芝麻，有很多贴还是没有任何技术点呢。</p><p>附上ResultBean，没有任何技术含量：(使用了lombok)</p><pre class="language-text"><code>@Data
+public class ResultBean&lt;T&gt; implements Serializable {
+
+  private static final long serialVersionUID = 1L;
+
+  public static final int SUCCESS = 0;
+
+  public static final int FAIL = 1;
+
+  public static final int NO_PERMISSION = 2;
+
+  private String msg = &quot;success&quot;;
+
+  private int code = SUCCESS;
+
+  private T data;
+
+  public ResultBean() {
+    super();
+  }
+
+  public ResultBean(T data) {
+    super();
+    this.data = data;
+  }
+
+  public ResultBean(Throwable e) {
+    super();
+    this.msg = e.toString();
+    this.code = FAIL ;
+  }
+}
+</code></pre><p><strong>统一的接口规范，能帮忙规避很多无用的返工修改和可能出现的问题。能使代码可读性更加好，利于进行aop和自动化测试这些额外工作。大家一定要重视。</strong></p><p>下一篇讲controller的规范，还有用到ResultBean，敬请留意。觉得有用请点赞加关注</p><h1 id="github地址"><a href="#github地址" aria-hidden="true" class="header-anchor">#</a> ===========GITHUB地址===========</h1><p>所有的代码细节都在已经上了github了，地址 <a href="https://github.com/xwjie/PLMCodeTemplate" target="_blank" rel="noopener noreferrer">xwjie/PLMCodeTemplate</a>，欢迎加星。有问题欢迎提出。</p></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/rule/" class="prev router-link-active">
+          导读
+        </a></span><!----></p></div></div></div></div>
+    <script src="/assets/js/0.7c548f74.js" defer></script><script src="/assets/js/app.de346166.js" defer></script>
+  </body>
+</html>
