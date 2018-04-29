@@ -10,5 +10,9 @@ features:
   details: 学习Vue框架设计，使用ES6自己把框架的功能逐个实现。
 - title: 学习笔记
   details: 记录技术学习种的偶得。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+footer: 晓风轻 Copyright © 2018
 ---
+
+# 作者联系方式
+
+![微信](./weixin.jpg)![qq](./qq.png)

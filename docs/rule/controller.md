@@ -8,7 +8,7 @@
 
 ## 统一返回ResultBean对象
 
-所有函数返回统一的ResultBean/PageResultBean格式，原因见我的接口定义这个贴。没有统一格式，AOP无法玩。
+所有函数返回统一的ResultBean/PageResultBean格式，原因见我的接口定义这个贴。没有统一格式，AOP无法玩。当然类名你可以按照自己喜好随便定义，如就叫Result。
 
 
 ## ResultBean不允许往后传
@@ -31,6 +31,9 @@ Controller做参数格式的转换，不允许把json，map这类对象传到ser
 
 日志在AOP里面会打印，而且我的建议是大部分日志在Services这层打印。
 
+:::tip 晓风轻建议
+Contorller只做参数格式转换，如果没有参数需要转换的，那么就一行代码。日志/参数校验/权限判断建议放到service里面，毕竟controller基本无法重用，而service重用较多。而我们的单元测试也不需要测试controller，直接测试service即可。
+:::
 
 规范里面大部分是 **不要做的项多，要做的比较少**，落地比较容易。
 
