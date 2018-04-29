@@ -7,7 +7,7 @@
       "docs:dev": "vuepress dev docs",
       "docs:build": "vuepress build docs",
       "deploy": "gh-pages -d dist",
-      "deploy:build": "npm run docs:build && gh-pages dist"
+      "deploy:build": "npm run docs:build && gh-pages -d dist && xcopy /s /e /y dist ."
   },
   "repository": {
     "type": "git",

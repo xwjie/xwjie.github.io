@@ -7,7 +7,7 @@
     <meta name="description" content="Just playing around">
     
     
-    <link rel="preload" href="/assets/css/4.styles.6431b4d5.css" as="style"><link rel="preload" href="/assets/js/app.59891515.js" as="script"><link rel="preload" href="/assets/js/0.92849ed8.js" as="script"><link rel="prefetch" href="/assets/js/1.abc3196d.js"><link rel="prefetch" href="/assets/js/2.2cb45b72.js"><link rel="prefetch" href="/assets/js/3.09513dab.js">
+    <link rel="preload" href="/assets/css/4.styles.6431b4d5.css" as="style"><link rel="preload" href="/assets/js/app.1d707a14.js" as="script"><link rel="preload" href="/assets/js/0.92849ed8.js" as="script"><link rel="prefetch" href="/assets/js/1.e1824ab4.js"><link rel="prefetch" href="/assets/js/2.2cb45b72.js"><link rel="prefetch" href="/assets/js/3.09513dab.js">
     <link rel="stylesheet" href="/assets/css/4.styles.6431b4d5.css">
   </head>
   <body>
@@ -17,7 +17,7 @@
     GitHub
     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link router-link-active">编程规范</a></div><div class="nav-item"><a href="/xiao/" class="nav-link">Vue框架学习</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link">External</a></div><a href="https://github.com/xwjie/PLMCodeTemplate" target="_blank" rel="noopener noreferrer" class="repo-link">
     GitHub
-    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>程序员你为什么这么累</span><!----></p><ul class="sidebar-group-items"><li><a href="/rule/" class="sidebar-link">导读</a></li><li><a href="/rule/rest-defined.html" class="active sidebar-link">接口定义</a></li><li><a href="/rule/controller.html" class="sidebar-link">/rule/controller.html</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="接口定义"><a href="#接口定义" aria-hidden="true" class="header-anchor">#</a> 接口定义</h1><p>工作中，少不了要定义各种接口，系统集成要定义接口，前后台掉调用也要定义接口。接口定义一定程度上能反应程序员的编程功底。列举一下工作中我发现大家容易出现的问题：</p><h1 id="_1-返回格式不统一"><a href="#_1-返回格式不统一" aria-hidden="true" class="header-anchor">#</a> 1. 返回格式不统一</h1><p>同一个接口，有时候返回数组，有时候返回单个；成功的时候返回对象，失败的时候返回错误信息字符串。工作中有个系统集成就是这样定义的接口，真是辣眼睛。这个对应代码上，返回的类型是map，json，object，都是不应该的。实际工作中，我们会定义一个统一的格式，就是ResultBean，分页的有另外一个PageResultBean</p><p>错误范例：</p><pre class="language-java"><code><span class="token comment">/**
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>程序员你为什么这么累</span><!----></p><ul class="sidebar-group-items"><li><a href="/rule/" class="sidebar-link">导读</a></li><li><a href="/rule/rest-defined.html" class="active sidebar-link">接口定义</a></li><li><a href="/rule/controller.html" class="sidebar-link">Controller规范</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="接口定义"><a href="#接口定义" aria-hidden="true" class="header-anchor">#</a> 接口定义</h1><p>工作中，少不了要定义各种接口，系统集成要定义接口，前后台掉调用也要定义接口。接口定义一定程度上能反应程序员的编程功底。列举一下工作中我发现大家容易出现的问题：</p><h1 id="_1-返回格式不统一"><a href="#_1-返回格式不统一" aria-hidden="true" class="header-anchor">#</a> 1. 返回格式不统一</h1><p>同一个接口，有时候返回数组，有时候返回单个；成功的时候返回对象，失败的时候返回错误信息字符串。工作中有个系统集成就是这样定义的接口，真是辣眼睛。这个对应代码上，返回的类型是map，json，object，都是不应该的。实际工作中，我们会定义一个统一的格式，就是ResultBean，分页的有另外一个PageResultBean</p><p>错误范例：</p><pre class="language-java"><code><span class="token comment">/**
  * 返回map可读性不好，尽量不要
  */</span>
 <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/delete&quot;</span><span class="token punctuation">)</span>
@@ -95,9 +95,9 @@
         ← <a href="/rule/" class="prev router-link-active">
           导读
         </a></span><span class="next"><a href="/rule/controller.html">
-          /rule/controller.html
+          Controller规范
         </a> →
       </span></p></div></div></div></div>
-    <script src="/assets/js/0.92849ed8.js" defer></script><script src="/assets/js/app.59891515.js" defer></script>
+    <script src="/assets/js/0.92849ed8.js" defer></script><script src="/assets/js/app.1d707a14.js" defer></script>
   </body>
 </html>
