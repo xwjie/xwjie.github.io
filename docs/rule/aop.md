@@ -130,14 +130,77 @@ public class ControllerAOP {
 
 ## 简单示例
 
-贴一个简单的controller（左边的箭头表示AOP拦截了）。请对比 [程序员你为什么这么累？][1]里面原来的代码查看，没有对比就没有伤害。
+贴一个简单的controller。请对比 [程序员你为什么这么累？][1]里面原来的代码查看，没有对比就没有伤害。
 
-![controller][3]
+```java
+/**
+ * 配置对象处理器
+ * 
+ * @author 晓风轻 https://github.com/xwjie/PLMCodeTemplate
+ */
+@RequestMapping("/config")
+@RestController
+public class ConfigController {
+
+  private final ConfigService configService;
+
+  public ConfigController(ConfigService configService) {
+    this.configService = configService;
+  }
+
+  @GetMapping("/all")
+  public ResultBean<Collection<Config>> getAll() {
+    return new ResultBean<Collection<Config>>(configService.getAll());
+  }
+
+  /**
+   * 新增数据, 返回新对象的id
+   * 
+   * @param config
+   * @return
+   */
+  @PostMapping("/add")
+  public ResultBean<Long> add(Config config) {
+    return new ResultBean<Long>(configService.add(config));
+  }
+
+  /**
+   * 根据id删除对象
+   * 
+   * @param id
+   * @return
+   */
+  @PostMapping("/delete")
+  public ResultBean<Boolean> delete(long id) {
+    return new ResultBean<Boolean>(configService.delete(id));
+  }
+
+  @PostMapping("/update")
+  public ResultBean<Boolean> update(Config config) {
+    configService.update(config);
+    return new ResultBean<Boolean>(true);
+  }
+}
+```
+
+
+## 为什么不用ExceptionHandler
+
+这是我发帖后问的最多的一个问题，很多人说为什么不用 ControllerAdvice + ExceptionHandler 来处理异常？觉得是我在重复发明轮子。首先，这2这都是AOP，本质上没有啥区别。而最重要的是ExceptionHandler只能处理异常，而我们的AOP除了处理异常，还有一个很重要的作用是打印日志，统计每一个controller方法的耗时，这在实际工作中也非常重要和有用的特性！
+
+:::tip
+就算你使用ExceptionHandler，也不要成功和失败的时候返回不一样的数据格式，否则前台很难写好代码。
+:::
+
+## 为什么不用Restful风格
+
+这也是问的比较多的一个问题。如果你提供的接口是给前台调用的，而你又在实际工作中前后台开发都负责的话，我觉得你应该不会问这个问题。诚然，restful风格的定义很优雅，但是在前台调用起来却非常的麻烦，前台通过返回的ResultBean的code来判断成功失败显然比通过http状态码来判断方便太多。第2个原因，使用http状态码返回出错信息也值得商榷。系统出错了返回400我觉得没有问题，但一个参数校验不通过也返回400，我个人觉得是很不合理的，是无法接受的。
 
 
 
-最后说一句，** 有统一的接口定义规范，然后有AOP实现，先有思想再有技术**。技术不是关键，AOP技术也很简单，这个帖子的关键点不是技术，而是习惯和思想，不要捡了芝麻丢了西瓜。网络上讲技术的贴多，讲习惯、风格的少，这些都是我工作多年的行之有效的经验之谈，望有缘人珍惜。
-
+:::tip 作者总结
+**有统一的接口定义规范，然后有AOP实现，先有思想再有技术**。技术不是关键，AOP技术也很简单，这个帖子的关键点不是技术，而是习惯和思想，不要捡了芝麻丢了西瓜。网络上讲技术的贴多，讲习惯、风格的少，这些都是我工作多年的行之有效的经验之谈，望有缘人珍惜。
+:::
 
   [1]: http://www.imooc.com/article/27569
   [2]: http://www.imooc.com/article/27664

@@ -7,7 +7,7 @@
     <meta name="description" content="把代码写复杂很容易，把代码写简单很难，这里讲的是如何编写简单易读的代码">
     
     
-    <link rel="preload" href="/assets/css/5.styles.1d6de0dd.css" as="style"><link rel="preload" href="/assets/js/app.11502165.js" as="script"><link rel="preload" href="/assets/js/0.3eda906a.js" as="script"><link rel="prefetch" href="/assets/js/1.f99b3aee.js"><link rel="prefetch" href="/assets/js/2.a862d6c9.js"><link rel="prefetch" href="/assets/js/3.20c1569f.js"><link rel="prefetch" href="/assets/js/4.0e754929.js">
+    <link rel="preload" href="/assets/css/5.styles.1d6de0dd.css" as="style"><link rel="preload" href="/assets/js/app.447755e0.js" as="script"><link rel="preload" href="/assets/js/0.0f184aad.js" as="script"><link rel="prefetch" href="/assets/js/1.f99b3aee.js"><link rel="prefetch" href="/assets/js/2.445e9150.js"><link rel="prefetch" href="/assets/js/3.20c1569f.js"><link rel="prefetch" href="/assets/js/4.0e754929.js">
     <link rel="stylesheet" href="/assets/css/5.styles.1d6de0dd.css">
   </head>
   <body>
@@ -48,7 +48,7 @@
   <span class="token comment">//xxx</span>
   <span class="token keyword">return</span> configService<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><p>很多人看了我的这篇文章 <a href="https://www.imooc.com/article/27569" target="_blank" rel="noopener noreferrer">程序员你为什么这么累？</a>，都觉得里面的技术也很简单，没有什么特别的地方，但是，实现这个代码框架之前，就是要你的接口的统一的格式ResultBean，aop才好做。有些人误解了，我那篇文章说的都不是技术，重点说的是编码习惯工作方式，如果你重点还是放在什么技术上，那我也帮不了你了。同样，如果我后面的关于习惯和规范的帖子，你重点还是放在技术上的话，那是丢了西瓜捡芝麻，有很多贴还是没有任何技术点呢。</p><p>附上ResultBean，没有任何技术含量：(使用了lombok)</p><pre class="language-java"><code><span class="token annotation punctuation">@Data</span>
+</code></pre><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>当时在知乎上发帖的时候，有人认为返回给前台的信息应该越少越好，避免出现信息泄露问题。这个觉悟是对的，但对象ID并不是敏感信息，这里返回没有问题。</p></div><p>很多人看了我的这篇文章 <a href="https://www.imooc.com/article/27569" target="_blank" rel="noopener noreferrer">程序员你为什么这么累？</a>，都觉得里面的技术也很简单，没有什么特别的地方，但是，实现这个代码框架之前，就是要你的接口的统一的格式ResultBean，aop才好做。有些人误解了，我那篇文章说的都不是技术，重点说的是编码习惯工作方式，如果你重点还是放在什么技术上，那我也帮不了你了。同样，如果我后面的关于习惯和规范的帖子，你重点还是放在技术上的话，那是丢了西瓜捡芝麻，有很多贴还是没有任何技术点呢。</p><p>附上ResultBean，没有任何技术含量：(使用了lombok)</p><pre class="language-java"><code><span class="token annotation punctuation">@Data</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ResultBean</span><span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
 
   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">1</span>L<span class="token punctuation">;</span>
@@ -87,6 +87,6 @@
           Controller规范
         </a> →
       </span></p></div></div></div></div>
-    <script src="/assets/js/0.3eda906a.js" defer></script><script src="/assets/js/app.11502165.js" defer></script>
+    <script src="/assets/js/0.0f184aad.js" defer></script><script src="/assets/js/app.447755e0.js" defer></script>
   </body>
 </html>
