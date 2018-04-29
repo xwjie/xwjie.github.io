@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/home.jpg
+# heroImage: /images/home.jpg
 actionText: 程序员你为什么这么累？ →
 actionLink: /rule/
 features:
