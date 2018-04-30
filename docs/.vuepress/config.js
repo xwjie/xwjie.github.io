@@ -5,12 +5,12 @@ module.exports = {
   base: '/', // 设置站点根路径
   
   themeConfig: {
-    repo: 'https://github.com/xwjie/PLMCodeTemplate' ,
+    repo: 'https://github.com/xwjie' ,
     nav: [
       { text: '首页', link: '/' },
       { text: '编程规范', link: '/rule/' },
       { text: 'Vue框架学习', link: '/xiao/' },
-      { text: 'External', link: 'https://google.com' },
+      { text: '个人首页', link: 'http://www.xiaowenjie.cn' },
     ],
     sidebar:  {
       '/rule/': [{
@@ -20,7 +20,13 @@ module.exports = {
 	        '',
 	        'rest-defined',
 	        'controller',
-	        'aop'
+	        'aop',
+	        'log',
+	        'exception',
+	        'i18n-valid',
+	        'util',
+	        'function',
+	        'config'
 	      ]
 	    }],
       '/css/': [
