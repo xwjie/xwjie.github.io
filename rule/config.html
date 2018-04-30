@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>晓风轻技术小站 | 配置规范</title>
+    <meta name="description" content="把代码写复杂很容易，把代码写简单很难，这里讲的是如何编写简单易读的代码">
+    
+    
+    <link rel="preload" href="/assets/css/11.styles.7763c5f8.css" as="style"><link rel="preload" href="/assets/js/app.dcd2ad01.js" as="script"><link rel="preload" href="/assets/js/7.7d96d712.js" as="script"><link rel="prefetch" href="/assets/js/0.063a789a.js"><link rel="prefetch" href="/assets/js/1.be8f7b4b.js"><link rel="prefetch" href="/assets/js/2.52ef7ff5.js"><link rel="prefetch" href="/assets/js/3.59eaa206.js"><link rel="prefetch" href="/assets/js/4.ea450e4d.js"><link rel="prefetch" href="/assets/js/5.20cd90e3.js"><link rel="prefetch" href="/assets/js/6.c3e355ed.js"><link rel="prefetch" href="/assets/js/8.6a0d3894.js"><link rel="prefetch" href="/assets/js/9.4f7a3abf.js"><link rel="prefetch" href="/assets/js/10.f06f0630.js">
+    <link rel="stylesheet" href="/assets/css/11.styles.7763c5f8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      晓风轻技术小站
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link router-link-active">编程规范</a></div><div class="nav-item"><a href="/xiao/" class="nav-link">Vue框架学习</a></div><div class="nav-item"><a href="http://www.xiaowenjie.cn" target="_blank" rel="noopener noreferrer" class="nav-link">个人首页</a></div><a href="https://github.com/xwjie" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link router-link-active">编程规范</a></div><div class="nav-item"><a href="/xiao/" class="nav-link">Vue框架学习</a></div><div class="nav-item"><a href="http://www.xiaowenjie.cn" target="_blank" rel="noopener noreferrer" class="nav-link">个人首页</a></div><a href="https://github.com/xwjie" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>程序员你为什么这么累</span><!----></p><ul class="sidebar-group-items"><li><a href="/rule/" class="sidebar-link">导读</a></li><li><a href="/rule/rest-defined.html" class="sidebar-link">接口定义常见问题</a></li><li><a href="/rule/controller.html" class="sidebar-link">Controller规范</a></li><li><a href="/rule/aop.html" class="sidebar-link">AOP实现</a></li><li><a href="/rule/log.html" class="sidebar-link">日志打印</a></li><li><a href="/rule/exception.html" class="sidebar-link">异常处理</a></li><li><a href="/rule/i18n-valid.html" class="sidebar-link">参数校验和国际化</a></li><li><a href="/rule/util.html" class="sidebar-link">工具类编写</a></li><li><a href="/rule/function.html" class="sidebar-link">函数编写建议</a></li><li><a href="/rule/config.html" class="active sidebar-link">配置规范</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/rule/config.html#需求" class="sidebar-link">需求</a></li><li class="sidebar-sub-header"><a href="/rule/config.html#json格式" class="sidebar-link">JSON格式</a></li><li class="sidebar-sub-header"><a href="/rule/config.html#xml格式" class="sidebar-link">XML格式</a></li><li class="sidebar-sub-header"><a href="/rule/config.html#配置文件编码禁忌" class="sidebar-link">配置文件编码禁忌</a></li><li class="sidebar-sub-header"><a href="/rule/config.html#重要思想" class="sidebar-link">重要思想</a></li></ul></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="配置规范"><a href="#配置规范" aria-hidden="true" class="header-anchor">#</a> 配置规范</h1><p>工作中少不了要制定各种各样的配置文件，这里和大家分享一下工作中我是如何制定配置文件的，这是个人习惯，结合强大的spring，效果很不错。</p><h2 id="需求"><a href="#需求" aria-hidden="true" class="header-anchor">#</a> 需求</h2><p>如我们现在有一个这样的配置需求，顶层是Server，有port和shutdown2个属性，包含一个service集合，service对象有name一个属性，并包含一个connector集合，connector对象有port和protocol2个属性。</p><p>我一上来不会去考虑是用xml还是json还是数据库配置，我会第一步写好对应的配置bean。如上面的需求，就写3个bean。bean和bean之间的包含关系要体现出来。（使用了lombok）</p><pre class="language-java"><code><span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ServerCfg</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">8005</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> String shutDown <span class="token operator">=</span> <span class="token string">&quot;SHUTDOWN&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>ServiceCfg<span class="token punctuation">&gt;</span></span> services<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ServiceCfg</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>ConnectorCfg<span class="token punctuation">&gt;</span></span> connectors<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConnectorCfg</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">8080</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> String protocol <span class="token operator">=</span> <span class="token string">&quot;HTTP/1.1&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>然后找一个地方先用代码产生这个bean：</p><pre class="language-java"><code>＠Configuration
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Configs</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@Bean</span>
+  <span class="token keyword">public</span> ServerCfg <span class="token function">createTestBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ServerCfg server <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServerCfg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// </span>
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>ServiceCfg<span class="token punctuation">&gt;</span></span> services <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics function"><span class="token punctuation">&lt;</span>ServiceCfg<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    server<span class="token punctuation">.</span><span class="token function">setServices</span><span class="token punctuation">(</span>services<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// </span>
+    ServiceCfg service <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServiceCfg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    services<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>service<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    service<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;Kitty&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// </span>
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>ConnectorCfg<span class="token punctuation">&gt;</span></span> connectors <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics function"><span class="token punctuation">&lt;</span>ConnectorCfg<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    service<span class="token punctuation">.</span><span class="token function">setConnectors</span><span class="token punctuation">(</span>connectors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+    ConnectorCfg connectorhttp11 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConnectorCfg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    connectorhttp11<span class="token punctuation">.</span><span class="token function">setPort</span><span class="token punctuation">(</span><span class="token number">8088</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    connectorhttp11<span class="token punctuation">.</span><span class="token function">setProtocol</span><span class="token punctuation">(</span><span class="token string">&quot;HTTP/1.1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    connectors<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>connectorhttp11<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+    ConnectorCfg connectorAJP <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConnectorCfg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    connectorAJP<span class="token punctuation">.</span><span class="token function">setPort</span><span class="token punctuation">(</span><span class="token number">8089</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    connectorAJP<span class="token punctuation">.</span><span class="token function">setProtocol</span><span class="token punctuation">(</span><span class="token string">&quot;AJP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    connectors<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>connectorAJP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">return</span> server<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>然后先测试，看看是否ok。为了演示，我就直接在controller里面调用一下</p><pre class="language-java"><code><span class="token annotation punctuation">@Autowired</span>
+ServerCfg cfg<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;/configTest&quot;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@ResponseBody</span>
+<span class="token keyword">public</span> ResultBean<span class="token generics function"><span class="token punctuation">&lt;</span>ServerCfg<span class="token punctuation">&gt;</span></span> <span class="token function">configTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ResultBean</span><span class="token generics function"><span class="token punctuation">&lt;</span>ServerCfg<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>cfg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>测试一下，工作正常。</p><p><img src="/assets/img/config1.123ea04c.jpg" alt></p><p>然后进行业务代码编写，等到所有功能测试完毕，就是【开发后期】，再来定义配置文件。中途当然少不了修改格式，字段等各种修改，对于我们来说只是修改bean定义，so easy。</p><p>都ok了，再决定使用哪种配置文件。如果是json，我们这样：</p><h2 id="json格式"><a href="#json格式" aria-hidden="true" class="header-anchor">#</a> JSON格式</h2><p>把上面接口调用的json复制下来，报存到配置文件。</p><p><img src="/assets/img/config2.fcc8949b.jpg" alt></p><p>json内容</p><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token number">8005</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;shutDown&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SHUTDOWN&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;services&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Kitty&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;connectors&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token number">8088</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;protocol&quot;</span><span class="token operator">:</span> <span class="token string">&quot;HTTP/1.1&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;executor&quot;</span><span class="token operator">:</span> <span class="token null">null</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token number">8089</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;protocol&quot;</span><span class="token operator">:</span> <span class="token string">&quot;AJP&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;executor&quot;</span><span class="token operator">:</span> <span class="token null">null</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><p>然后修改config的bean生成的代码为：</p><pre class="language-java"><code><span class="token keyword">import</span> com<span class="token punctuation">.</span>fasterxml<span class="token punctuation">.</span>jackson<span class="token punctuation">.</span>databind<span class="token punctuation">.</span>ObjectMapper<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Configs</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;classpath:config/tomcat.json&quot;</span><span class="token punctuation">)</span>
+  File serverConfigJson<span class="token punctuation">;</span>
+  
+  <span class="token annotation punctuation">@Bean</span>
+  <span class="token keyword">public</span> ServerCfg <span class="token function">readServerConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">readValue</span><span class="token punctuation">(</span>serverConfigJson<span class="token punctuation">,</span> ServerCfg<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>代码太简洁了，有没有？！</p><h2 id="xml格式"><a href="#xml格式" aria-hidden="true" class="header-anchor">#</a> XML格式</h2><p>如果使用XML，麻烦一点，我这里使用XStream序列化和反序列化xml。</p><p>首先在bean上增加XStream相关注解</p><pre class="language-java"><code><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@XStreamAlias</span><span class="token punctuation">(</span><span class="token string">&quot;Server&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ServerCfg</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@XStreamAsAttribute</span>
+  <span class="token keyword">private</span> <span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">8005</span><span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@XStreamAsAttribute</span>
+  <span class="token keyword">private</span> String shutDown <span class="token operator">=</span> <span class="token string">&quot;SHUTDOWN&quot;</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">private</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>ServiceCfg<span class="token punctuation">&gt;</span></span> services<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@XStreamAlias</span><span class="token punctuation">(</span><span class="token string">&quot;Service&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ServiceCfg</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@XStreamAsAttribute</span>
+  <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+
+  <span class="token keyword">private</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>ConnectorCfg<span class="token punctuation">&gt;</span></span> connectors<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@XStreamAlias</span><span class="token punctuation">(</span><span class="token string">&quot;Connector&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConnectorCfg</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@XStreamAsAttribute</span>
+  <span class="token keyword">private</span> <span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">8080</span><span class="token punctuation">;</span>
+  
+  <span class="token annotation punctuation">@XStreamAsAttribute</span>
+  <span class="token keyword">private</span> String protocol <span class="token operator">=</span> <span class="token string">&quot;HTTP/1.1&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>然后修改产品文件的bean代码如下：</p><pre class="language-java"><code>＠Configuration
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Configs</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;classpath:config/tomcat.xml&quot;</span><span class="token punctuation">)</span>
+  File serverConfigXML<span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@Bean</span>
+  <span class="token keyword">public</span> ServerCfg <span class="token function">readServerConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> XMLConfig<span class="token punctuation">.</span><span class="token function">toBean</span><span class="token punctuation">(</span>serverConfigXML<span class="token punctuation">,</span> ServerCfg<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>XMLConfig工具类相关代码：</p><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">XMLConfig</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">toXML</span><span class="token punctuation">(</span>Object obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    XStream xstream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    xstream<span class="token punctuation">.</span><span class="token function">autodetectAnnotations</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// xstream.processAnnotations(Server.class);</span>
+
+    <span class="token keyword">return</span> xstream<span class="token punctuation">.</span><span class="token function">toXML</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> T <span class="token function">toBean</span><span class="token punctuation">(</span>String xml<span class="token punctuation">,</span> Class<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> cls<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    XStream xstream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    xstream<span class="token punctuation">.</span><span class="token function">processAnnotations</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    T obj <span class="token operator">=</span> <span class="token punctuation">(</span>T<span class="token punctuation">)</span> xstream<span class="token punctuation">.</span><span class="token function">fromXML</span><span class="token punctuation">(</span>xml<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> T <span class="token function">toBean</span><span class="token punctuation">(</span>File file<span class="token punctuation">,</span> Class<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> cls<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    XStream xstream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    xstream<span class="token punctuation">.</span><span class="token function">processAnnotations</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    T obj <span class="token operator">=</span> <span class="token punctuation">(</span>T<span class="token punctuation">)</span> xstream<span class="token punctuation">.</span><span class="token function">fromXML</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre><p>XStream库需要增加以下依赖：</p><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.thoughtworks.xstream<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>xstream<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.4.10<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>所以个人爱好，格式推荐json格式配置。</p><h2 id="配置文件编码禁忌"><a href="#配置文件编码禁忌" aria-hidden="true" class="header-anchor">#</a> 配置文件编码禁忌</h2><ul><li>读取配置的代码和业务代码耦合在一起</li></ul><p>大忌！千万千万不要！如下，业务代码里面出现了json的配置代码。</p><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">someServiceCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 使用json配置，这里读取到了配置文件，返回的是json格式</span>
+  JSONObject config <span class="token operator">=</span> <span class="token function">readJsonConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// 如果某个配置了</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span><span class="token function">getBoolean</span><span class="token punctuation">(</span><span class="token string">&quot;somekey&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// dosomething</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span><span class="token punctuation">{</span>
+    
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><ul><li>开发初期就定配置文件</li></ul><p>毫无意义，还导致频繁改动！先定义bean，改bean简单多了。我的习惯是转测试前一天才生成配置文件。</p><ul><li>手工编写配置文件</li></ul><p>应该先写完代码，根据代码生成配置序列化成对于的格式，而不是自己编写配置文件然后用代码读出来。不要做反了。</p><h2 id="重要思想"><a href="#重要思想" aria-hidden="true" class="header-anchor">#</a> 重要思想</h2><p>最主要的思想是，不要直接和配置文件发生关系，一定要有第三者（这里是配置的bean）。你可以说是中间件，中介都行。 否则，一开始说用xml配置，后面说用json配置，再后面说配置放数据库？这算不算需求变更？你们说算不算？算吗？不算吗？何必这么认真呢？只是1,2行代码的问题，这里使用xml还是json，代码修改量是2行。而且改了测试的话，写个main函数或者junit测试即可，不需要测试业务，工程都不用起，你自己算算节约多少时间。</p><p>另外，代码里面是使用spring的习惯，没有spring也是一样的，或者配置的bean你不用spring注入，而用工具类获取也是一样，区别不大。</p></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/rule/function.html" class="prev">
+          函数编写建议
+        </a></span><!----></p></div></div></div></div>
+    <script src="/assets/js/7.7d96d712.js" defer></script><script src="/assets/js/app.dcd2ad01.js" defer></script>
+  </body>
+</html>
