@@ -9,6 +9,7 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       { text: '编程规范', link: '/rule/' },
+      { text: 'Ajax跨域详解', link: '/ajax/' },
       { text: 'Vue框架学习', link: '/xiao/' },
       { text: '个人首页', link: 'http://www.xiaowenjie.cn' },
     ],
@@ -27,6 +28,13 @@ module.exports = {
 	        'util',
 	        'function',
 	        'config'
+	      ]
+	    }],
+		'/ajax/': [{
+	      //title: 'Ajax跨越安全详解',
+	      collapsable: false,
+	      children: [
+	        '',
 	      ]
 	    }],
       '/css/': [

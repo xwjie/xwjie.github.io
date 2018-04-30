@@ -265,7 +265,7 @@ public class FileUtil {
 
 所以要让开发人员容易找到，我们可以使用静态引入，在Eclipse里面这样导入：
 
-![静态引入](../images/static-import.jpg)
+![静态引入](./images/static-import.jpg)
 
 
 这样，任何地方开发人员只要一敲就可以出来，然后再约定一下项目组方法名规范，这样工具类的使用就会简单很多！
@@ -281,7 +281,7 @@ public class FileUtil {
 例如我的范例工程里面，专门建立了一个source目录存放框架代码，工具类也在里面，这里的代码，只有我一个人会去修改：
 
 
-![工程结构](../images/project.jpg)
+![工程结构](./images/project.jpg)
 
 
 :::tip 晓风轻总结

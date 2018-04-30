@@ -94,7 +94,7 @@ public ResultBean<ServerCfg> configTest() {
 
 测试一下，工作正常。
 
-![](../images/config1.jpg)
+![](./images/config1.jpg)
 
 
 然后进行业务代码编写，等到所有功能测试完毕，就是【开发后期】，再来定义配置文件。中途当然少不了修改格式，字段等各种修改，对于我们来说只是修改bean定义，so easy。
@@ -110,7 +110,7 @@ public ResultBean<ServerCfg> configTest() {
 
 把上面接口调用的json复制下来，报存到配置文件。
 
-![](../images/config2.jpg)
+![](./images/config2.jpg)
 
 
 json内容
@@ -295,7 +295,7 @@ public void someServiceCode() {
 
 * 手工编写配置文件
 
-应该先写完代码，根据代码生成配置序列化成对于的格式，而不是自己编写配置文件然后用代码读出来。不要做反了。
+应该先写完代码，根据代码生成配置序列化成对应的格式，而不是自己编写配置文件然后用代码读出来。不要做反了。
 
 ## 重要思想
 
