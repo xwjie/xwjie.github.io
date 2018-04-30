@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>晓风轻技术小站 | 参数校验和国际化</title>
+    <meta name="description" content="把代码写复杂很容易，把代码写简单很难，这里讲的是如何编写简单易读的代码">
+    
+    
+    <link rel="preload" href="/assets/css/11.styles.7763c5f8.css" as="style"><link rel="preload" href="/assets/js/app.dcd2ad01.js" as="script"><link rel="preload" href="/assets/js/3.59eaa206.js" as="script"><link rel="prefetch" href="/assets/js/0.063a789a.js"><link rel="prefetch" href="/assets/js/1.be8f7b4b.js"><link rel="prefetch" href="/assets/js/2.52ef7ff5.js"><link rel="prefetch" href="/assets/js/4.ea450e4d.js"><link rel="prefetch" href="/assets/js/5.20cd90e3.js"><link rel="prefetch" href="/assets/js/6.c3e355ed.js"><link rel="prefetch" href="/assets/js/7.7d96d712.js"><link rel="prefetch" href="/assets/js/8.6a0d3894.js"><link rel="prefetch" href="/assets/js/9.4f7a3abf.js"><link rel="prefetch" href="/assets/js/10.f06f0630.js">
+    <link rel="stylesheet" href="/assets/css/11.styles.7763c5f8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      晓风轻技术小站
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link router-link-active">编程规范</a></div><div class="nav-item"><a href="/xiao/" class="nav-link">Vue框架学习</a></div><div class="nav-item"><a href="http://www.xiaowenjie.cn" target="_blank" rel="noopener noreferrer" class="nav-link">个人首页</a></div><a href="https://github.com/xwjie" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link router-link-active">编程规范</a></div><div class="nav-item"><a href="/xiao/" class="nav-link">Vue框架学习</a></div><div class="nav-item"><a href="http://www.xiaowenjie.cn" target="_blank" rel="noopener noreferrer" class="nav-link">个人首页</a></div><a href="https://github.com/xwjie" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>程序员你为什么这么累</span><!----></p><ul class="sidebar-group-items"><li><a href="/rule/" class="sidebar-link">导读</a></li><li><a href="/rule/rest-defined.html" class="sidebar-link">接口定义常见问题</a></li><li><a href="/rule/controller.html" class="sidebar-link">Controller规范</a></li><li><a href="/rule/aop.html" class="sidebar-link">AOP实现</a></li><li><a href="/rule/log.html" class="sidebar-link">日志打印</a></li><li><a href="/rule/exception.html" class="sidebar-link">异常处理</a></li><li><a href="/rule/i18n-valid.html" class="active sidebar-link">参数校验和国际化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/rule/i18n-valid.html#修改前代码" class="sidebar-link">修改前代码</a></li><li class="sidebar-sub-header"><a href="/rule/i18n-valid.html#修改后代码" class="sidebar-link">修改后代码</a></li><li class="sidebar-sub-header"><a href="/rule/i18n-valid.html#用户工具类userutil" class="sidebar-link">用户工具类UserUtil</a></li><li class="sidebar-sub-header"><a href="/rule/i18n-valid.html#校验工具类checkutil" class="sidebar-link">校验工具类CheckUtil</a></li><li class="sidebar-sub-header"><a href="/rule/i18n-valid.html#spring的静态方法注入" class="sidebar-link">spring的静态方法注入</a></li><li class="sidebar-sub-header"><a href="/rule/i18n-valid.html#jdk-的-import-static" class="sidebar-link">jdk 的 import static</a></li></ul></li><li><a href="/rule/util.html" class="sidebar-link">工具类编写</a></li><li><a href="/rule/function.html" class="sidebar-link">函数编写建议</a></li><li><a href="/rule/config.html" class="sidebar-link">配置规范</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="参数校验和国际化"><a href="#参数校验和国际化" aria-hidden="true" class="header-anchor">#</a> 参数校验和国际化</h1><p>今天我们说说参数校验和国际化，<strong>这些代码没有什么技术含量，却大量充斥在业务代码上</strong>，很可能业务代码只有几行，参数校验代码却有十几行，非常影响代码阅读，所以很有必要把这块的代码量减下去。</p><p>今天的目的主要是把之前例子里面的和业务无关的国际化参数隐藏掉，以及如何封装好校验函数。</p><h2 id="修改前代码"><a href="#修改前代码" aria-hidden="true" class="header-anchor">#</a> 修改前代码</h2><ul><li>controller代码</li></ul><pre class="language-java"><code><span class="token comment">/**
+ * ！！！错误范例
+ *
+ *  根据id删除对象
+ * 
+ * @param id
+ * @param lang
+ * @return
+ */</span>
+<span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/delete&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> Map<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token keyword">long</span> id<span class="token punctuation">,</span> String lang<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  Map<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">boolean</span> result <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 语言（中英文提示不同）</span>
+    Locale local <span class="token operator">=</span> <span class="token string">&quot;zh&quot;</span><span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span>lang<span class="token punctuation">)</span> <span class="token operator">?</span> Locale<span class="token punctuation">.</span>CHINESE
+        <span class="token operator">:</span> Locale<span class="token punctuation">.</span>ENGLISH<span class="token punctuation">;</span>
+
+    result <span class="token operator">=</span> configService<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> local<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;code&quot;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">CheckException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 参数等校验出错，已知异常，不需要打印堆栈，返回码为-1</span>
+    data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;code&quot;</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;msg&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 其他未知异常，需要打印堆栈分析用，返回码为99</span>
+    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;delete config error&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;code&quot;</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;msg&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;result&quot;</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>其中的lang参数我们需要去掉</p><ul><li>service代码</li></ul><pre class="language-java"><code><span class="token comment">/**
+ * ！！！错误示范
+ * 
+ * 出现和业务无关的参数local
+ * 
+ * @param id
+ * @param locale
+ * @return
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token keyword">long</span> id<span class="token punctuation">,</span> Locale locale<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 参数校验</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>id <span class="token operator">&lt;=</span> <span class="token number">0</span>L<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>locale<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>Locale<span class="token punctuation">.</span>CHINESE<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">CheckException</span><span class="token punctuation">(</span><span class="token string">&quot;非法的ID：&quot;</span> <span class="token operator">+</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">CheckException</span><span class="token punctuation">(</span><span class="token string">&quot;Illegal ID:&quot;</span> <span class="token operator">+</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">boolean</span> result <span class="token operator">=</span> dao<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 修改操作需要打印操作结果</span>
+  logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;delete config success, id:&quot;</span> <span class="token operator">+</span> id <span class="token operator">+</span> <span class="token string">&quot;, result:&quot;</span> <span class="token operator">+</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> dao<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="修改后代码"><a href="#修改后代码" aria-hidden="true" class="header-anchor">#</a> 修改后代码</h2><ul><li>controller代码</li></ul><pre class="language-java"><code><span class="token comment">/**
+ * 根据id删除对象
+ * 
+ * @param id
+ * @return
+ */</span>
+<span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/delete&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> ResultBean<span class="token generics function"><span class="token punctuation">&lt;</span>Boolean<span class="token punctuation">&gt;</span></span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token keyword">long</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ResultBean</span><span class="token generics function"><span class="token punctuation">&lt;</span>Boolean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>configService<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><ul><li>service代码</li></ul><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token keyword">long</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 参数校验</span>
+  <span class="token function">check</span><span class="token punctuation">(</span>id <span class="token operator">&gt;</span> <span class="token number">0</span>L<span class="token punctuation">,</span> <span class="token string">&quot;id.error&quot;</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">boolean</span> result <span class="token operator">=</span> dao<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 修改操作需要打印操作结果</span>
+  logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;delete config success, id: {}, result: {}&quot;</span><span class="token punctuation">,</span> id<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Controll的非业务代码如何去掉参考 Controller规范，下面说说去掉Local参数。</p><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>业务代码里面不要出现和业务无关的东西，如local，MessageSource 。</p></div><p>去掉国际化参数还是使用的技术还是<strong>ThreadLocal</strong>。国际化信息可以放好几个地方，但建议不要放在每一个url上，除了比较low还容易出很多其他问题。这里演示的是放在cookie上面的例子：</p><h2 id="用户工具类userutil"><a href="#用户工具类userutil" aria-hidden="true" class="header-anchor">#</a> 用户工具类UserUtil</h2><p>需要保存用户的国际化信息。</p><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserUtil</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> ThreadLocal<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> tlUser <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadLocal</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> ThreadLocal<span class="token generics function"><span class="token punctuation">&lt;</span>Locale<span class="token punctuation">&gt;</span></span> tlLocale <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadLocal</span><span class="token generics function"><span class="token punctuation">&lt;</span>Locale<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> Locale <span class="token function">initialValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 语言的默认值</span>
+      <span class="token keyword">return</span> Locale<span class="token punctuation">.</span>CHINESE<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String KEY_LANG <span class="token operator">=</span> <span class="token string">&quot;lang&quot;</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String KEY_USER <span class="token operator">=</span> <span class="token string">&quot;user&quot;</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">setUser</span><span class="token punctuation">(</span>String userid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    tlUser<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>userid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 把用户信息放到log4j</span>
+    MDC<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>KEY_USER<span class="token punctuation">,</span> userid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> tlUser<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">setLocale</span><span class="token punctuation">(</span>String locale<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setLocale</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Locale</span><span class="token punctuation">(</span>locale<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">setLocale</span><span class="token punctuation">(</span>Locale locale<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    tlLocale<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>locale<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> Locale <span class="token function">getLocale</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> tlLocale<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">clearAllUserInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    tlUser<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tlLocale<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    MDC<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>KEY_USER<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="校验工具类checkutil"><a href="#校验工具类checkutil" aria-hidden="true" class="header-anchor">#</a> 校验工具类CheckUtil</h2><p>这里需要调用用户工具类得到用户的语言。还有就是提示信息里面，需要支持传入变量。</p><pre class="language-java"><code><span class="token keyword">package</span> plm<span class="token punctuation">.</span>common<span class="token punctuation">.</span>utils<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>MessageSource<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> plm<span class="token punctuation">.</span>common<span class="token punctuation">.</span>exceptions<span class="token punctuation">.</span>CheckException<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CheckUtil</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> MessageSource resources<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">setResources</span><span class="token punctuation">(</span>MessageSource resources<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    CheckUtil<span class="token punctuation">.</span>resources <span class="token operator">=</span> resources<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> condition<span class="token punctuation">,</span> String msgKey<span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">fail</span><span class="token punctuation">(</span>msgKey<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">notEmpty</span><span class="token punctuation">(</span>String str<span class="token punctuation">,</span> String msgKey<span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>str <span class="token operator">==</span> null <span class="token operator">||</span> str<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">fail</span><span class="token punctuation">(</span>msgKey<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">notNull</span><span class="token punctuation">(</span>Object obj<span class="token punctuation">,</span> String msgKey<span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">fail</span><span class="token punctuation">(</span>msgKey<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">fail</span><span class="token punctuation">(</span>String msgKey<span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">CheckException</span><span class="token punctuation">(</span>resources<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span>msgKey<span class="token punctuation">,</span> args<span class="token punctuation">,</span> UserUtil<span class="token punctuation">.</span><span class="token function">getLocale</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>这里有几个小技术点：</p><h2 id="spring的静态方法注入"><a href="#spring的静态方法注入" aria-hidden="true" class="header-anchor">#</a> spring的静态方法注入</h2><p>工具类里面使用spring的bean，使用了MethodInvokingFactoryBean的静态方法注入：</p><pre class="language-xml"><code><span class="token comment">&lt;!-- 国际化 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>messageSource<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.springframework.context.support.ResourceBundleMessageSource<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>basenames<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>list</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>format<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>exceptions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>windows<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>list</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span>
+  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.springframework.beans.factory.config.MethodInvokingFactoryBean<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>staticMethod<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>plm.common.utils.CheckUtil.setResources<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token comment">&lt;!-- 这里配置参数 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>arguments<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>messageSource<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+</code></pre><h2 id="jdk-的-import-static"><a href="#jdk-的-import-static" aria-hidden="true" class="header-anchor">#</a> jdk 的 import static</h2><p>server里面调用 <code>check</code> 方法的时候没有出现类名。这里使用的jdk的import static 特性，可以在ide上配置，请自行google。</p><pre class="language-java"><code> <span class="token keyword">import</span> <span class="token keyword">static</span> plm<span class="token punctuation">.</span>common<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>CheckUtil<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+</code></pre><p>还有一小点注意，我建议参数非法的时候，<strong>把非法值打印出来</strong>，否则你又要浪费时间看是没有传呢还是传错了，时间就是这样一点点浪费的。</p><pre class="language-java"><code> <span class="token function">check</span><span class="token punctuation">(</span>id <span class="token operator">&gt;</span> <span class="token number">0</span>L<span class="token punctuation">,</span> <span class="token string">&quot;id.error&quot;</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 当前非法的id也传入提示出去</span>
+</code></pre><p>另外有些项目用valid来校验，从我实际接触来看，用的不多，可能是有短木板吧。如果你的项目valid就能满足，那就更加好了，不需要看了。但是大部分场景，校验比例子复杂N多，提示也千变万化，所以我们还是自己调用函数校验。</p><p>做了这几步之后，代码会漂亮很多，记住，代码最主要的不是性能，而是可读性，有了可读性才有才维护性。而去掉无关的代码后的代码，和之前的代码对比一下，自己看吧。</p></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/rule/exception.html" class="prev">
+          异常处理
+        </a></span><span class="next"><a href="/rule/util.html">
+          工具类编写
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/3.59eaa206.js" defer></script><script src="/assets/js/app.dcd2ad01.js" defer></script>
+  </body>
+</html>
