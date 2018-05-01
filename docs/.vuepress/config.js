@@ -27,7 +27,8 @@ module.exports = {
 	        'i18n-valid',
 	        'util',
 	        'function',
-	        'config'
+	        'config',
+	        'github'
 	      ]
 	    }],
 		'/ajax/': [{

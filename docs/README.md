@@ -15,7 +15,7 @@ features:
 - title: RestClient框架
   details: 使用Spring AOP编写的类似Feign的声明式调用框架。
 - title: IE XPath
-  details: 给测试部写的windows下IE获取元素XPath工具，公司内超过200个人使用。
+  details:  给测试部写的windows下IE获取元素XPath工具，公司内超过200个人使用。
 footer: 晓风轻 Copyright © 2018
 ---
 
