@@ -67,7 +67,10 @@ public class ControllerAOP {
 
     return result;
   }
-
+  
+  /**
+    * 封装异常信息，注意区分已知异常（自己抛出的）和未知异常
+    */
   private ResultBean<?> handlerException(ProceedingJoinPoint pjp, Throwable e) {
     ResultBean<?> result = new ResultBean();
 
@@ -90,7 +93,7 @@ public class ControllerAOP {
 }
 ```
 
-:::tip
+:::tip 晓风轻建议
 对于未知异常，给相关责任人发送邮件通知，第一时间知道异常，实际工作中非常有意义。
 :::
 
@@ -198,11 +201,8 @@ public class ConfigController {
 
 
 
-:::tip 作者总结
+:::tip 晓风轻总结
 **有统一的接口定义规范，然后有AOP实现，先有思想再有技术**。技术不是关键，AOP技术也很简单，这个帖子的关键点不是技术，而是习惯和思想，不要捡了芝麻丢了西瓜。网络上讲技术的贴多，讲习惯、风格的少，这些都是我工作多年的行之有效的经验之谈，望有缘人珍惜。
 :::
 
   [1]: http://www.imooc.com/article/27569
-  [2]: http://www.imooc.com/article/27664
-  [3]: //img.mukewang.com/5ae2af5a0001051b07090460.jpg
-  [4]: https://github.com/xwjie/PLMCodeTemplate

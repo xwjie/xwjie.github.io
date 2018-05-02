@@ -89,59 +89,13 @@ public boolean add(xxx) {
 }
 ```
 
-:::tip
+:::tip 相关讨论
 当时在知乎上发帖的时候，有人认为返回给前台的信息应该越少越好，避免出现信息泄露问题。这个觉悟是对的，但对象ID并不是敏感信息，这里返回没有问题。
 :::
 
-很多人看了我的这篇文章 [程序员你为什么这么累？][2]，都觉得里面的技术也很简单，没有什么特别的地方，但是，实现这个代码框架之前，就是要你的接口的统一的格式ResultBean，aop才好做。有些人误解了，我那篇文章说的都不是技术，重点说的是编码习惯工作方式，如果你重点还是放在什么技术上，那我也帮不了你了。同样，如果我后面的关于习惯和规范的帖子，你重点还是放在技术上的话，那是丢了西瓜捡芝麻，有很多贴还是没有任何技术点呢。
+很多人看了我的这篇文章`程序员你为什么这么累？`，都觉得里面的技术也很简单，没有什么特别的地方，但是，实现这个代码框架之前，就是要你的接口的统一的格式ResultBean，aop才好做。有些人误解了，我那篇文章说的都不是技术，重点说的是编码习惯工作方式，如果你重点还是放在什么技术上，那我也帮不了你了。同样，如果我后面的关于习惯和规范的帖子，你重点还是放在技术上的话，那是丢了西瓜捡芝麻，有很多贴还是没有任何技术点呢。
 
 
-
-附上ResultBean，没有任何技术含量：(使用了lombok)
-
-```java
-@Data
-public class ResultBean<T> implements Serializable {
-
-  private static final long serialVersionUID = 1L;
-
-  public static final int SUCCESS = 0;
-
-  public static final int FAIL = 1;
-
-  public static final int NO_PERMISSION = 2;
-
-  private String msg = "success";
-
-  private int code = SUCCESS;
-
-  private T data;
-
-  public ResultBean() {
-    super();
-  }
-
-  public ResultBean(T data) {
-    super();
-    this.data = data;
-  }
-
-  public ResultBean(Throwable e) {
-    super();
-    this.msg = e.toString();
-    this.code = FAIL ;
-  }
-}
-```
-
-**统一的接口规范，能帮忙规避很多无用的返工修改和可能出现的问题。能使代码可读性更加好，利于进行aop和自动化测试这些额外工作。大家一定要重视。**
-
-
-
-下一篇讲controller的规范，还有用到ResultBean，敬请留意。觉得有用请点赞加关注
-
-
-
-  [1]: https://www.imooc.com/article/27569
-  [2]: https://www.imooc.com/article/27569
-  [3]: https://github.com/xwjie/PLMCodeTemplate
+:::tip 晓风轻总结
+统一的接口规范，能帮忙规避很多无用的返工修改和可能出现的问题。能使代码可读性更加好，利于进行aop和自动化测试这些额外工作。大家一定要重视。
+:::

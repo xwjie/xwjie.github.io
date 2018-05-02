@@ -29,6 +29,7 @@ module.exports = {
 	        'util',
 	        'function',
 	        'config',
+	        'change',
 	        'github'
 	      ]
 	    }],
@@ -45,6 +46,7 @@ module.exports = {
 	      children: [
 	        '',
 	        'webflux-study-path',
+	        'async',
 	        'imooc'
 	      ]
 	    }],
