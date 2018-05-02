@@ -10,8 +10,9 @@ module.exports = {
       { text: '首页', link: '/' },
       { text: '编程规范', link: '/rule/' },
       { text: 'Ajax跨域详解', link: '/ajax/' },
-      { text: 'Vue框架学习', link: '/xiao/' },
-      { text: '个人首页', link: 'http://www.xiaowenjie.cn' },
+      { text: 'WebFlux', link: '/webflux/' },
+      { text: 'Vue', link: 'https://github.com/xwjie/VueStudyNote' },
+      //{ text: '个人首页', link: 'http://www.xiaowenjie.cn' },
     ],
     sidebar:  {
       '/rule/': [{
@@ -36,6 +37,15 @@ module.exports = {
 	      collapsable: false,
 	      children: [
 	        '',
+	      ]
+  	  	}],
+    	'/webflux/': [{
+	      //title: 'Ajax跨越安全详解',
+	      collapsable: false,
+	      children: [
+	        '',
+	        'webflux-study-path',
+	        'imooc'
 	      ]
 	    }],
       '/css/': [

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>晓风轻技术小站 | webflux学习路径</title>
+    <meta name="description" content="把代码写复杂很容易，把代码写简单很难，这里讲的是如何编写简单易读的代码">
+    
+    
+    <link rel="preload" href="/assets/css/16.styles.3a529fc4.css" as="style"><link rel="preload" href="/assets/js/app.4cee84ca.js" as="script"><link rel="preload" href="/assets/js/0.99b70af0.js" as="script"><link rel="prefetch" href="/assets/js/1.a7e8a967.js"><link rel="prefetch" href="/assets/js/2.540ca362.js"><link rel="prefetch" href="/assets/js/3.8d8525c8.js"><link rel="prefetch" href="/assets/js/4.1198aed8.js"><link rel="prefetch" href="/assets/js/5.232a0f11.js"><link rel="prefetch" href="/assets/js/6.5b8060c0.js"><link rel="prefetch" href="/assets/js/7.9f0af7d9.js"><link rel="prefetch" href="/assets/js/8.d182c8ed.js"><link rel="prefetch" href="/assets/js/9.512110d9.js"><link rel="prefetch" href="/assets/js/10.422da7f1.js"><link rel="prefetch" href="/assets/js/11.a7db27ff.js"><link rel="prefetch" href="/assets/js/12.97462754.js"><link rel="prefetch" href="/assets/js/13.37764663.js"><link rel="prefetch" href="/assets/js/14.93bd5f82.js"><link rel="prefetch" href="/assets/js/15.fbad8b46.js">
+    <link rel="stylesheet" href="/assets/css/16.styles.3a529fc4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      晓风轻技术小站
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link">编程规范</a></div><div class="nav-item"><a href="/ajax/" class="nav-link">Ajax跨域详解</a></div><div class="nav-item"><a href="/webflux/" class="nav-link router-link-active">WebFlux</a></div><div class="nav-item"><a href="https://github.com/xwjie/VueStudyNote" target="_blank" rel="noopener noreferrer" class="nav-link">Vue</a></div><a href="https://github.com/xwjie" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link">编程规范</a></div><div class="nav-item"><a href="/ajax/" class="nav-link">Ajax跨域详解</a></div><div class="nav-item"><a href="/webflux/" class="nav-link router-link-active">WebFlux</a></div><div class="nav-item"><a href="https://github.com/xwjie/VueStudyNote" target="_blank" rel="noopener noreferrer" class="nav-link">Vue</a></div><a href="https://github.com/xwjie" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span></span><!----></p><ul class="sidebar-group-items"><li><a href="/webflux/" class="sidebar-link">Spring WebFlux</a></li><li><a href="/webflux/webflux-study-path.html" class="active sidebar-link">webflux学习路径</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#lambda表达式中的this" class="sidebar-link">lambda表达式中的this</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#java中this实现原理" class="sidebar-link">java中this实现原理</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#lambda实例方法的方法引用" class="sidebar-link">lambda实例方法的方法引用</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#lambda实现惰性求值" class="sidebar-link">lambda实现惰性求值</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#lambda惰性求值底层机制" class="sidebar-link">lambda惰性求值底层机制</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#stream流编程" class="sidebar-link">stream流编程</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#stream内部迭代和外部迭代" class="sidebar-link">stream内部迭代和外部迭代</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#stream操作类型" class="sidebar-link">stream操作类型</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#stream运行机制" class="sidebar-link">stream运行机制</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#jdk9的响应式流" class="sidebar-link">jdk9的响应式流</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#reactor的背压" class="sidebar-link">reactor的背压</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#响应式基石reactor" class="sidebar-link">响应式基石reactor</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#spring5的webflux" class="sidebar-link">spring5的webflux</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#异步servlet" class="sidebar-link">异步servlet</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#sse（server-sent-event）" class="sidebar-link">SSE（server-sent event）</a></li><li class="sidebar-sub-header"><a href="/webflux/webflux-study-path.html#结束语" class="sidebar-link">结束语</a></li></ul></li><li><a href="/webflux/imooc.html" class="sidebar-link">课程地址</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="webflux学习路径"><a href="#webflux学习路径" aria-hidden="true" class="header-anchor">#</a> webflux学习路径</h1><p>springboot2 已经发布，其中最亮眼的非webflux响应式编程莫属了！响应式的weblfux可以支持高吞吐量，意味着使用相同的资源可以处理更加多的请求，毫无疑问将会成为未来技术的趋势，是必学的技术！很多人都看过相关的入门教程，但看完之后总觉得很迷糊，知其然不知道其所以然，包括我本人也有相同的疑惑。后面在研究和学习中发现，是我的<strong>学习路径不对</strong>，很多基本概念不熟悉，之前公司主打的jdk版本还是1.6/1.7，直接跳到运行在jdk8上的webflux，<strong>跨度太大</strong>，迷惑是在所难免的！</p><p>在这里我个人推荐的学习途径如下：<strong>先学习jdk8的lambda表达式和stream流编程，了解函数式编程的知识点和思想，接着学习jdk9的响应式流flux，理解响应式流概念，理解背压和实现机制。这2者学好之后，很容易理解webflux的基石reactor，再学习webflux就水到渠成了！</strong></p><p><img src="/assets/img/path.f4fe6e9d.jpg" alt></p><p>这里我记录了自己的学习之路，列出了每一块的学习重点，除了API的知识点学习之外，更加重要的了解底层运行机制和实现原理。对于我个人来说，<strong>学习技术如果不了解原理，知识点需要死记硬背，而了解了底层机制之后，不但不需要死记硬背，还可以把自己的技术点连成面融会贯通，很容易举一反三，知识点也不会忘记，也能和别人扯扯技术的底层实现了</strong>。</p><blockquote><p>下面只讲解重点/高级知识和底层原理，入门教程请自行搜索学习</p></blockquote><h2 id="lambda表达式中的this"><a href="#lambda表达式中的this" aria-hidden="true" class="header-anchor">#</a> lambda表达式中的this</h2><p>lambda表达式最终会返回一个实现了指定接口的实例，看上去和内部匿名类很像，但有一个<strong>最大的区别就是代码里面的this，内部匿名类this指向的就是匿名类，而lambda表达式里面的this指向的当前类</strong>。</p><pre class="language-java"><code>
+<span class="token keyword">package</span> jdk8<span class="token punctuation">.</span>lambda<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * lambda表达式的this
+ * 
+ * @author 晓风轻
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThisDemo</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> String name <span class="token operator">=</span> <span class="token string">&quot;ThisDemo&quot;</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 匿名类实现</span>
+    <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+      <span class="token keyword">private</span> String name <span class="token operator">=</span> <span class="token string">&quot;Runnable&quot;</span><span class="token punctuation">;</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;这里的this指向匿名类:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// lambda实现</span>
+    <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;这里的this指向当前的ThisDemo类:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ThisDemo demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThisDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    demo<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>输出</p><blockquote><p>这里的this指向匿名类:Runnable
+这里的this指向当前的ThisDemo类:ThisDemo</p></blockquote><h2 id="java中this实现原理"><a href="#java中this实现原理" aria-hidden="true" class="header-anchor">#</a> java中this实现原理</h2><p>lambda表达式里面，会把lambda表达式在本类中生成一个以lambda$+数字的方法。<strong>关键点：该方法不一定是static的方法，是static还是非static，取决于lambda表达式里面是否引用了this</strong>。这就是为什么lambda表达式里面的this指向的是本地，因为他<strong>在本类里面创建了一个方法，然后把lambda表达式里面的代码放进去</strong>。</p><pre class="language-java"><code>    <span class="token comment">// lambda实现</span>
+    <span class="token comment">// 下面会自动生成lambda$0方法,由于使用了this,所以是非static方法</span>
+    <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;这里的this指向当前的ThisDemo类:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// lambda实现</span>
+    <span class="token comment">// 下面会自动生成lambda$1方法,由于使用了this,所以是static方法</span>
+    <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;这里没有引用this,生成的lambda1方法是static的&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>上面代码会自动生成2个lambda$方法</p><p>使用javap -s -p 类名， 可以看出一个是static，一个是非staic的</p><p><img src="//img.mukewang.com/5ad9e1f600013bfe05940321.png" alt="this"></p><p>这就是为什么lambda表达式里面的this指向当前类的底层机制！因为<strong>代码就是在本类的一个方法里面执行的</strong>。</p><p>额外说一句，自动生成的方法是否带参数取决于lambda是否有参数，例子中表达式没有参数（箭头左边是空的），所以自动生成的也没有。</p><h2 id="lambda实例方法的方法引用"><a href="#lambda实例方法的方法引用" aria-hidden="true" class="header-anchor">#</a> lambda实例方法的方法引用</h2><p>方法引用有多种，静态方法的方法引用很好理解，但实例对象的方法引用一开始确实让我有点费解，这和静态方法引用由啥区别？看上去很像啊。</p><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">DemoClass</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">/**
+	 * 这里是一个静态方法
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">staticMethod</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">/**
+	 * 这里是一个实例方法
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">normalMethod</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;实例方法可以访问this:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> i <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MethodRefrenceDemo</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// 静态方法的方法引用</span>
+		IntUnaryOperator methodRefrence1 <span class="token operator">=</span> DemoClass<span class="token operator">:</span><span class="token operator">:</span>staticMethod<span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>methodRefrence1<span class="token punctuation">.</span><span class="token function">applyAsInt</span><span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		DemoClass demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DemoClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// 实例方法的方法引用</span>
+		IntUnaryOperator methodRefrence2 <span class="token operator">=</span> demo<span class="token operator">:</span><span class="token operator">:</span>normalMethod<span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>methodRefrence2<span class="token punctuation">.</span><span class="token function">applyAsInt</span><span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre><p>这里牵涉到不同的语言里面对this的实现方法。我们知道静态方法和实例方法的区别是实例方法有this，静态方法没有。java里面是怎么样实现this的呢？</p><p><strong>java里面在默认把this作为参数，放到实例方法的第一个参数。</strong></p><p>就是说：</p><pre class="language-java"><code>	<span class="token comment">/**
+	 * 这里是一个实例方法
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">normalMethod</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;实例方法可以访问this:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</code></pre><p>编译之后和下面这样的代码编译之后是一样的！</p><pre class="language-java"><code>	<span class="token comment">/**
+	 * 这里是一个实例方法
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">normalMethod</span><span class="token punctuation">(</span>DemoClass <span class="token keyword">this</span><span class="token punctuation">,</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;实例方法可以访问this:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</code></pre><h3 id="如何证明？"><a href="#如何证明？" aria-hidden="true" class="header-anchor">#</a> 如何证明？</h3><p><strong>第1个证据，看反编译里面的本地变量表。</strong></p><p>静态方法：
+<img src="//img.mukewang.com/5ad9e4380001579f08080370.png" alt="静态方法"></p><p>而实例方法
+<img src="//img.mukewang.com/5ad9e4490001a2ed09220419.png" alt="实例方法"></p><p><strong>第2个证据，下面这样的代码能正确执行。</strong></p><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">DemoCl2</span><span class="token punctuation">{</span>
+
+	<span class="token comment">/**
+	 * 这里是一个实例方法, 代码上2个参数
+	 * 而我们调用的时候只有一个参数
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">normalMethod</span><span class="token punctuation">(</span>DemoClass2 <span class="token keyword">this</span><span class="token punctuation">,</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MethodRefrenceDemo</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		DemoClass2 demo2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DemoClass2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// 代码定义上有2个参数, 第一个参数为this</span>
+		<span class="token comment">// 但实际上调用的时候只需要一个参数</span>
+		demo2<span class="token punctuation">.</span><span class="token function">normalMethod</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>所以，我的理解，java里面的所有方法都是静态方法，只是有些方法有this变量，有些没有。</p><p>所以，<strong>成员方法我们也可以写成静态方法的方法引用</strong>。如下：</p><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MethodRefrenceDemo</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// 静态方法的方法引用</span>
+		IntUnaryOperator methodRefrence1 <span class="token operator">=</span> DemoClass<span class="token operator">:</span><span class="token operator">:</span>staticMethod<span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>methodRefrence1<span class="token punctuation">.</span><span class="token function">applyAsInt</span><span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		DemoClass demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DemoClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// 实例方法normalMethod的方法引用</span>
+		IntUnaryOperator methodRefrence2 <span class="token operator">=</span> demo<span class="token operator">:</span><span class="token operator">:</span>normalMethod<span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>methodRefrence2<span class="token punctuation">.</span><span class="token function">applyAsInt</span><span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// 对同一个实例方法normalMethod也可以使用静态引用</span>
+		<span class="token comment">// 代码上normalMethod虽然只有一个参数,但实际上有一个隐含的this函数</span>
+		<span class="token comment">// 所以使用的是2个参数bifunction函数接口</span>
+		BiFunction<span class="token generics function"><span class="token punctuation">&lt;</span>DemoClass<span class="token punctuation">,</span> Integer<span class="token punctuation">,</span> Integer<span class="token punctuation">&gt;</span></span> methodRefrence3 <span class="token operator">=</span> DemoClass<span class="token operator">:</span><span class="token operator">:</span>normalMethod<span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>methodRefrence3<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>demo<span class="token punctuation">,</span> <span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>上面代码里面。对同一个实例方法normalMethod，我们既可以使用实例方法引用（实例::方法名），也可以使用静态方法引用（类名::方法名）。</p><h2 id="lambda实现惰性求值"><a href="#lambda实现惰性求值" aria-hidden="true" class="header-anchor">#</a> lambda实现惰性求值</h2><p>惰性求值在lambda里面非常重要，也非常有用。</p><p>举例，编程规范里面有一条规范，是打印日志前需要判断日志级别（性能要求高的时候）。如下</p><pre class="language-java"><code>    <span class="token comment">// 打印日志前需要先判断日志级别</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>logger<span class="token punctuation">.</span><span class="token function">isLoggable</span><span class="token punctuation">(</span>Level<span class="token punctuation">.</span>FINE<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      logger<span class="token punctuation">.</span><span class="token function">fine</span><span class="token punctuation">(</span><span class="token string">&quot;打印一些日志:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre><p>为什么要加判断呢？不加判断会有问题呢？ 看如下代码：</p><pre class="language-java"><code><span class="token keyword">package</span> jdk8<span class="token punctuation">.</span>lambda<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>TimeUnit<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>logging<span class="token punctuation">.</span>Level<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>logging<span class="token punctuation">.</span>Logger<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * lambda的惰性求值
+ * 
+ * @author 晓风轻
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LogDemo</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Logger logger <span class="token operator">=</span> Logger
+      <span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span>LogDemo<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;这个方法执行了, 耗时1秒钟&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      TimeUnit<span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token string">&quot;LogDemo&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 如果不加判断直接打印, 会有额外多余的开销, 就算最终日志并没有打印</span>
+    logger<span class="token punctuation">.</span><span class="token function">fine</span><span class="token punctuation">(</span><span class="token string">&quot;打印一些日志:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    LogDemo demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LogDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    demo<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>执行代码，发现虽然日志没有打印，但toString方法还是执行了，属于多余浪费的开销。</p><p>每一个日志打印都加判断，看着很别扭，现在有了lambda表达式之后，可以使用lambda的惰性求值，就可以去掉if判断，如下</p><pre class="language-java"><code>    <span class="token comment">// 使用lambda表达式的惰性求值,不需要判断日志级别</span>
+    logger<span class="token punctuation">.</span><span class="token function">fine</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token string">&quot;打印一些日志:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="lambda惰性求值底层机制"><a href="#lambda惰性求值底层机制" aria-hidden="true" class="header-anchor">#</a> lambda惰性求值底层机制</h2><p>这个现象很好理解，简单讲解一下。就是没有使用表达式的时候，相当于</p><pre class="language-java"><code>String msg <span class="token operator">=</span> <span class="token string">&quot;打印一些日志:&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span>
+logger<span class="token punctuation">.</span><span class="token function">fine</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>虽然最后没有打印，但字符串拼接的工作还是执行了。而使用了lambda表达式之后，字符串的拼接放到一个函数里面，fine日志需要打印的时候才去调用这个方法才真正执行！从而实现了惰性求值。</p><p>后面我们学习的jdk8的stream流编程里面，没有调用<strong>最终操作</strong>的时候，中间操作的方法都不会执行，这也是惰性求值。</p><h2 id="stream流编程"><a href="#stream流编程" aria-hidden="true" class="header-anchor">#</a> stream流编程</h2><p>stream编程主要是学习API的使用，但前提是学好lambda，基础好了，看这些方法定义非常简单，要是没有打好基础，你会有很多东西需要记忆。</p><h2 id="stream内部迭代和外部迭代"><a href="#stream内部迭代和外部迭代" aria-hidden="true" class="header-anchor">#</a> stream内部迭代和外部迭代</h2><p>一般来说，我们之前的编码方法，叫外部迭代，stream的写法叫内部迭代。内部迭代代码更加可读更加优雅，关注点是做什么（外部迭代关注是怎么样做），也很容易让我们养成编程小函数的好习惯！这点在编程习惯里面非常重要！看例子：</p><pre class="language-java"><code><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>stream<span class="token punctuation">.</span>IntStream<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StreamDemo1</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// 外部迭代</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      sum <span class="token operator">+=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;结果为：&quot;</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 使用stream的内部迭代</span>
+    <span class="token comment">// map就是中间操作（返回stream的操作）</span>
+    <span class="token comment">// sum就是终止操作</span>
+    <span class="token keyword">int</span> sum2 <span class="token operator">=</span> IntStream<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>StreamDemo1<span class="token operator">:</span><span class="token operator">:</span>doubleNum<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;结果为：&quot;</span> <span class="token operator">+</span> sum2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;惰性求值就是终止没有调用的情况下，中间操作不会执行&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    IntStream<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>StreamDemo1<span class="token operator">:</span><span class="token operator">:</span>doubleNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">doubleNum</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;执行了乘以2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="stream操作类型"><a href="#stream操作类型" aria-hidden="true" class="header-anchor">#</a> stream操作类型</h2><p>操作类型概念要理清楚。有几个维度。</p><p>首先分为 <strong>中间操作</strong> 和 <strong>最终操作</strong>，在最终操作没有调用的情况下，所有的中级操作都不会执行。那么那些是中间操作那些是最终操作呢？ 简单来说，返回stream流的就是中间操作，可以继续链式调用下去，不是返回stream的就是最终操作。这点很好理解。</p><p>最终操作里面分为短路操作和非短路操作，短路操作就是limit/findxxx/xxxMatch这种，就是找了符合条件的就终止，其他的就是非短路操作。在无限流里面需要调用短路操作，否则像炫迈口香糖一样根本停不下来！</p><p>中间操作又分为 <strong>有状态操作</strong> 和 <strong>无状态操作</strong>，怎么样区分呢？ 一开始很多同学需要死记硬背，其实你主要掌握了<strong>状态</strong>这个关键字就不需要死记硬背。<strong>状态就是和其他数据有关系</strong>。我们可以看方法的参数，如果是一个参数的，就是无状态操作，因为只和自己有关，其他的就是有状态操作。如map/filter方法，只有一个参数就是自己，就是无状态操作；而distinct/sorted就是有状态操作，因为去重和排序都需要和其他数据比较，理解了这点，就不需要死记硬背了！</p><p>为什么要知道有状态和无状态操作呢？在多个操作的时候，我们需要把无状态操作写在一起，有状态操作放到最后，这样效率会更加高。</p><h2 id="stream运行机制"><a href="#stream运行机制" aria-hidden="true" class="header-anchor">#</a> stream运行机制</h2><p>我们可以通过下面的代码来理解stream的运行机制</p><pre class="language-java"><code><span class="token keyword">package</span> stream<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Random<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>TimeUnit<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>stream<span class="token punctuation">.</span>Stream<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 验证stream运行机制
+ * 
+ * 1. 所有操作是链式调用, 一个元素只迭代一次 
+ * 2. 每一个中间操作返回一个新的流. 流里面有一个属性sourceStage 
+ *     指向同一个 地方,就是Head 
+ * 3. Head-&gt;nextStage-&gt;nextStage-&gt;... -&gt; null
+ * 4. 有状态操作会把无状态操作阶段,单独处理
+ * 5. 并行环境下, 有状态的中间操作不一定能并行操作.
+ * 
+ * 6. parallel/ sequetial 这2个操作也是中间操作(也是返回stream)
+ *     但是他们不创建流, 他们只修改 Head的并行标志
+ * 
+ * @author 晓风轻
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RunStream</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Random random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 随机产生数据</span>
+    Stream<span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">&gt;</span></span> stream <span class="token operator">=</span> Stream<span class="token punctuation">.</span><span class="token function">generate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment">// 产生500个 ( 无限流需要短路操作. )</span>
+        <span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
+        <span class="token comment">// 第1个无状态操作</span>
+        <span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span>s <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;peek: &quot;</span> <span class="token operator">+</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment">// 第2个无状态操作</span>
+        <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>s <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;filter: &quot;</span> <span class="token operator">+</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> s <span class="token operator">&gt;</span> <span class="token number">1000000</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token comment">// 有状态操作</span>
+        <span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i1<span class="token punctuation">,</span> i2<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;排序: &quot;</span> <span class="token operator">+</span> i1 <span class="token operator">+</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">+</span> i2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> i1<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>i2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token comment">// 又一个无状态操作</span>
+        <span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span>s <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;peek2: &quot;</span> <span class="token operator">+</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parallel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 终止操作</span>
+    stream<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * 打印日志并sleep 5 毫秒
+   * 
+   * @param s
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// System.out.println(s);</span>
+    <span class="token comment">// 带线程名(测试并行情况)</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; &gt; &quot;</span> <span class="token operator">+</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      TimeUnit<span class="token punctuation">.</span>MILLISECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>大家自己测试一下代码，能发现stream的调用方法，就像现实中的流水线一样，一个元素只会迭代一次，但如果中间有无状态操作，前后的操作会单独处理（元素就会被多次迭代）。</p><h2 id="jdk9的响应式流"><a href="#jdk9的响应式流" aria-hidden="true" class="header-anchor">#</a> jdk9的响应式流</h2><p>就是reactive stream，也就是flow。其实和jdk8的stream没有一点关系。说白了就一个<strong>发布-订阅模式</strong>，一共只有4个接口，3个对象，非常简单清晰。写一个入门例子就可以掌握。</p><pre class="language-java"><code><span class="token keyword">package</span> jdk9<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>Flow<span class="token punctuation">.</span>Processor<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>Flow<span class="token punctuation">.</span>Subscriber<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>Flow<span class="token punctuation">.</span>Subscription<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>SubmissionPublisher<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 带 process 的 flow demo
+ */</span>
+
+<span class="token comment">/**
+ * Processor, 需要继承SubmissionPublisher并实现Processor接口
+ * 
+ * 输入源数据 integer, 过滤掉小于0的, 然后转换成字符串发布出去
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">MyProcessor</span> <span class="token keyword">extends</span> <span class="token class-name">SubmissionPublisher</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span>
+    <span class="token keyword">implements</span> <span class="token class-name">Processor</span><span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">,</span> String<span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> Subscription subscription<span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSubscribe</span><span class="token punctuation">(</span>Subscription subscription<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 保存订阅关系, 需要用它来给发布者响应</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subscription <span class="token operator">=</span> subscription<span class="token punctuation">;</span>
+
+    <span class="token comment">// 请求一个数据</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onNext</span><span class="token punctuation">(</span>Integer item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 接受到一个数据, 处理</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;处理器接受到数据: &quot;</span> <span class="token operator">+</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 过滤掉小于0的, 然后发布出去</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span><span class="token string">&quot;转换后的数据:&quot;</span> <span class="token operator">+</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 处理完调用request再请求一个数据</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 或者 已经达到了目标, 调用cancel告诉发布者不再接受数据了</span>
+    <span class="token comment">// this.subscription.cancel();</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>Throwable throwable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 出现了异常(例如处理数据的时候产生了异常)</span>
+    throwable<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 我们可以告诉发布者, 后面不接受数据了</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 全部数据处理完了(发布者关闭了)</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;处理器处理完了!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 关闭发布者</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FlowDemo2</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+    <span class="token comment">// 1. 定义发布者, 发布的数据类型是 Integer</span>
+    <span class="token comment">// 直接使用jdk自带的SubmissionPublisher</span>
+    SubmissionPublisher<span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">&gt;</span></span> publiser <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubmissionPublisher</span><span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 2. 定义处理器, 对数据进行过滤, 并转换为String类型</span>
+    MyProcessor processor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyProcessor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 3. 发布者 和 处理器 建立订阅关系</span>
+    publiser<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>processor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 4. 定义最终订阅者, 消费 String 类型数据</span>
+    Subscriber<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> subscriber <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscriber</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+      <span class="token keyword">private</span> Subscription subscription<span class="token punctuation">;</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSubscribe</span><span class="token punctuation">(</span>Subscription subscription<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 保存订阅关系, 需要用它来给发布者响应</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subscription <span class="token operator">=</span> subscription<span class="token punctuation">;</span>
+
+        <span class="token comment">// 请求一个数据</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onNext</span><span class="token punctuation">(</span>String item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 接受到一个数据, 处理</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;接受到数据: &quot;</span> <span class="token operator">+</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 处理完调用request再请求一个数据</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 或者 已经达到了目标, 调用cancel告诉发布者不再接受数据了</span>
+        <span class="token comment">// this.subscription.cancel();</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>Throwable throwable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 出现了异常(例如处理数据的时候产生了异常)</span>
+        throwable<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 我们可以告诉发布者, 后面不接受数据了</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 全部数据处理完了(发布者关闭了)</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;处理完了!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 5. 处理器 和 最终订阅者 建立订阅关系</span>
+    processor<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>subscriber<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 6. 生产数据, 并发布</span>
+    <span class="token comment">// 这里忽略数据生产过程</span>
+    publiser<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    publiser<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 7. 结束后 关闭发布者</span>
+    <span class="token comment">// 正式环境 应该放 finally 或者使用 try-resouce 确保关闭</span>
+    publiser<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 主线程延迟停止, 否则数据没有消费就退出</span>
+    Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre><h2 id="reactor的背压"><a href="#reactor的背压" aria-hidden="true" class="header-anchor">#</a> reactor的背压</h2><p>背压依我的理解来说，是指<strong>订阅者能和发布者交互（通过代码里面的调用request和cancel方法交互），可以调节发布者发布数据的速率，解决把订阅者压垮的问题</strong>。关键在于上面例子里面的订阅关系Subscription这个接口，他有request和cancel 2个方法，用于通知发布者需要数据和通知发布者不再接受数据。</p><p>我们重点理解背压在jdk9里面是如何实现的。关键在于<strong>发布者Publisher的实现类SubmissionPublisher的submit方法是block方法</strong>。订阅者会有一个缓冲池，默认为Flow.defaultBufferSize() = 256。当订阅者的缓冲池满了之后，发布者调用submit方法发布数据就会被阻塞，发布者就会停（慢）下来；订阅者消费了数据之后（调用Subscription.request方法），缓冲池有位置了，submit方法就会继续执行下去，就是通过这样的机制，实现了调节发布者发布数据的速率，消费得快，生成就快，消费得慢，发布者就会被阻塞，当然就会慢下来了。</p><p>怎么样实现发布者和多个订阅者之间的阻塞和同步呢？使用的jdk7的Fork/Join的ManagedBlocker，有兴趣的请自己查找相关资料。</p><div class="tip custom-block"><p class="custom-block-title">晓风轻提示</p><p>关键理解背压是解决订阅者被压垮的问题，和理解jdk里面如何实现背压。</p></div><h2 id="响应式基石reactor"><a href="#响应式基石reactor" aria-hidden="true" class="header-anchor">#</a> 响应式基石reactor</h2><p>spring webflux是基于reactor来实现响应式的。那么reactor是什么呢？我是这样理解的
+<strong>reactor = jdk8的stream + jdk9的flow响应式流</strong>。理解了这句话，reactor就很容易掌握。
+reactor里面Flux和Mono就是stream，他的最终操作就是 subscribe/block 2种。reactor里面说的不订阅将什么也不会方法就是我们最开始学习的惰性求值。</p><div class="tip custom-block"><p class="custom-block-title">晓风轻总结</p><p>reactor = jdk8的stream + jdk9的flow响应式流</p></div><p>我们来看一段代码，理解一下：</p><pre class="language-java"><code><span class="token keyword">package</span> com<span class="token punctuation">.</span>imooc<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>TimeUnit<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>reactivestreams<span class="token punctuation">.</span>Subscriber<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>reactivestreams<span class="token punctuation">.</span>Subscription<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> reactor<span class="token punctuation">.</span>core<span class="token punctuation">.</span>publisher<span class="token punctuation">.</span>Flux<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReactorDemo</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// reactor = jdk8 stream + jdk9 reactive stream</span>
+    <span class="token comment">// Mono 0-1个元素</span>
+    <span class="token comment">// Flux 0-N个元素</span>
+    String<span class="token punctuation">[</span><span class="token punctuation">]</span> strs <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;3&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 2. 定义订阅者</span>
+    Subscriber<span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">&gt;</span></span> subscriber <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscriber</span><span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+      <span class="token keyword">private</span> Subscription subscription<span class="token punctuation">;</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSubscribe</span><span class="token punctuation">(</span>Subscription subscription<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 保存订阅关系, 需要用它来给发布者响应</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subscription <span class="token operator">=</span> subscription<span class="token punctuation">;</span>
+
+        <span class="token comment">// 请求一个数据</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onNext</span><span class="token punctuation">(</span>Integer item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 接受到一个数据, 处理</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;接受到数据: &quot;</span> <span class="token operator">+</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          TimeUnit<span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment">// 处理完调用request再请求一个数据</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 或者 已经达到了目标, 调用cancel告诉发布者不再接受数据了</span>
+        <span class="token comment">// this.subscription.cancel();</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>Throwable throwable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 出现了异常(例如处理数据的时候产生了异常)</span>
+        throwable<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 我们可以告诉发布者, 后面不接受数据了</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token annotation punctuation">@Override</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 全部数据处理完了(发布者关闭了)</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;处理完了!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 这里就是jdk8的stream</span>
+    Flux<span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span>strs<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>s <span class="token operator">-</span><span class="token operator">&gt;</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment">// 最终操作</span>
+    <span class="token comment">// 这里就是jdk9的reactive stream</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>subscriber<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>上面的例子里面，我们可以把jdk9里面flowdemo的订阅者代码原封不动的copy过来，直接就可以用在reactor的subscribe方法上。订阅就是相当于调用了stream的最终操作。有了 reactor = jdk8 stream + jdk9 reactive stream 概念后，在掌握了jdk8的stream和jkd9的flow之后，reactor也不难掌握。</p><h2 id="spring5的webflux"><a href="#spring5的webflux" aria-hidden="true" class="header-anchor">#</a> spring5的webflux</h2><p>上面的基础和原理掌握之后，学习webflux就水到渠成了！<strong>webflux的关键是自己编写的代码里面返回流（Flux/Mono），spring框架来负责处理订阅。</strong> spring框架提供2种开发模式来编写响应式代码，使用mvc之前的注解模式和使用router function模式，都需要我们的代码返回流，spring的响应式数据库spring data jpa，如使用mongodb，也是返回流，订阅都需要交给框架，自己不能订阅。而编写响应式代码之前，我们还需要了解2个重要的概念，就是异步servlet和SSE。</p><h2 id="异步servlet"><a href="#异步servlet" aria-hidden="true" class="header-anchor">#</a> 异步servlet</h2><p>学习异步servlet我们最重要的<strong>了解同步servlet阻塞了什么？为什么需要异步servlet？异步servlet能支持高吞吐量的原理是什么？</strong></p><p>servlet容器（如tomcat）里面，每处理一个请求会占用一个线程，同步servlet里面，业务代码处理多久，servlet容器的线程就会等（阻塞）多久，而servlet容器的线程是由上限的，当请求多了的时候servlet容器线程就会全部用完，就无法再处理请求（这个时候请求可能排队也可能丢弃，得看如何配置），就会限制了应用的吞吐量！</p><p>而异步serlvet里面，servlet容器的线程不会傻等业务代码处理完毕，而是直接返回（继续处理其他请求），给业务代码一个回调函数（asyncContext.complete()），业务代码处理完了再通知我！这样就可以使用少量的线程处理更加高的请求，从而实现高吞吐量！</p><p>我们看示例代码：</p><pre class="language-java"><code>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>CompletableFuture<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>TimeUnit<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>AsyncContext<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>ServletException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>ServletRequest<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>ServletResponse<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>WebServlet<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServlet<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServletRequest<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServletResponse<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Servlet implementation class AsyncServlet
+ */</span>
+<span class="token annotation punctuation">@WebServlet</span><span class="token punctuation">(</span>asyncSupported <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span> urlPatterns <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">&quot;/AsyncServlet&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncServlet</span> <span class="token keyword">extends</span> <span class="token class-name">HttpServlet</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">1</span>L<span class="token punctuation">;</span>
+
+  <span class="token comment">/**
+   * @see HttpServlet#HttpServlet()
+   */</span>
+  <span class="token keyword">public</span> <span class="token function">AsyncServlet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+   *      response)
+   */</span>
+  <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doGet</span><span class="token punctuation">(</span>HttpServletRequest request<span class="token punctuation">,</span>
+      HttpServletResponse response<span class="token punctuation">)</span> <span class="token keyword">throws</span> ServletException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+    <span class="token keyword">long</span> t1 <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 开启异步</span>
+    AsyncContext asyncContext <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">startAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 执行业务代码</span>
+    CompletableFuture<span class="token punctuation">.</span><span class="token function">runAsync</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">doSomeThing</span><span class="token punctuation">(</span>asyncContext<span class="token punctuation">,</span>
+        asyncContext<span class="token punctuation">.</span><span class="token function">getRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> asyncContext<span class="token punctuation">.</span><span class="token function">getResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;async use:&quot;</span> <span class="token operator">+</span> <span class="token punctuation">(</span>System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> t1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">doSomeThing</span><span class="token punctuation">(</span>AsyncContext asyncContext<span class="token punctuation">,</span>
+      ServletRequest servletRequest<span class="token punctuation">,</span> ServletResponse servletResponse<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 模拟耗时操作</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      TimeUnit<span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      servletResponse<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;done&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 业务代码处理完毕, 通知结束</span>
+    asyncContext<span class="token punctuation">.</span><span class="token function">complete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+   *      response)
+   */</span>
+  <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doPost</span><span class="token punctuation">(</span>HttpServletRequest request<span class="token punctuation">,</span>
+      HttpServletResponse response<span class="token punctuation">)</span> <span class="token keyword">throws</span> ServletException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+    <span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>大家可以运行上面代码，业务代码花了5秒，但servlet容器的线程几乎没有任何耗时。而如果是同步servlet的，线程就会傻等5秒，这5秒内这个线程只处理了这一个请求。</p><h2 id="sse（server-sent-event）"><a href="#sse（server-sent-event）" aria-hidden="true" class="header-anchor">#</a> SSE（server-sent event）</h2><p>响应式流里面，可以多次返回数据（其实和响应式没有关系），使用的技术就是H5的SSE。我们学习技术，API的使用只是最初级也是最简单的，更加重要的是需要知其然并知其所以然，否则你只能死记硬背不用就忘！我们不满足在spring里面能实现sse效果，更加需要知道spring是如何做到的。其实SSE很简单，我们花一点点时间就可以掌握，我们在纯servlet环境里面实现。我们看代码，这里一个最简单的示例。</p><pre class="language-java"><code>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>TimeUnit<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>ServletException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>WebServlet<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServlet<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServletRequest<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServletResponse<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Servlet implementation class SSE
+ */</span>
+<span class="token annotation punctuation">@WebServlet</span><span class="token punctuation">(</span><span class="token string">&quot;/SSE&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SSE</span> <span class="token keyword">extends</span> <span class="token class-name">HttpServlet</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">1</span>L<span class="token punctuation">;</span>
+
+  <span class="token comment">/**
+   * @see HttpServlet#HttpServlet()
+   */</span>
+  <span class="token keyword">public</span> <span class="token function">SSE</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+   *      response)
+   */</span>
+  <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doGet</span><span class="token punctuation">(</span>HttpServletRequest request<span class="token punctuation">,</span>
+      HttpServletResponse response<span class="token punctuation">)</span> <span class="token keyword">throws</span> ServletException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+    response<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span><span class="token string">&quot;text/event-stream&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    response<span class="token punctuation">.</span><span class="token function">setCharacterEncoding</span><span class="token punctuation">(</span><span class="token string">&quot;utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 指定事件标识</span>
+      response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">&quot;event:me\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// 格式: data: + 数据 + 2个回车</span>
+      response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">&quot;data:&quot;</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">&quot;\n\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        TimeUnit<span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+   *      response)
+   */</span>
+  <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doPost</span><span class="token punctuation">(</span>HttpServletRequest request<span class="token punctuation">,</span>
+      HttpServletResponse response<span class="token punctuation">)</span> <span class="token keyword">throws</span> ServletException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+    <span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>关键是ContentType 是 &quot;text/event-stream&quot;，然后返回的数据有固定的要求格式即可。</p><h2 id="结束语"><a href="#结束语" aria-hidden="true" class="header-anchor">#</a> 结束语</h2><p>经过上面的一步一个脚印的学习，我们的基础已经打牢，障碍已经扫清，现在可以进入轻松愉快的spring flux学习之旅了！Enjoy！</p></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/webflux/" class="prev router-link-active">
+          Spring WebFlux
+        </a></span><span class="next"><a href="/webflux/imooc.html">
+          课程地址
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/0.99b70af0.js" defer></script><script src="/assets/js/app.4cee84ca.js" defer></script>
+  </body>
+</html>

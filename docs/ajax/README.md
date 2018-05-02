@@ -4,7 +4,7 @@
 
 
 
-![评价](./images/imooc.png)
+[![评价](./images/imooc.png)](https://www.imooc.com/learn/947)
 
 ## 大纲
 
@@ -61,3 +61,9 @@ jsonp是前后台的一个约定，约定了当请求带了指定参数的时候
 ## github地址
 
 [https://github.com/xwjie/AjaxDemo](https://github.com/xwjie/AjaxDemo)
+
+## 课程地址
+
+点击图片进入视频学习
+
+[![](./images/imooc2.png)](https://www.imooc.com/learn/947)
