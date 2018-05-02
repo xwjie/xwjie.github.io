@@ -7,7 +7,7 @@
     <meta name="description" content="把代码写复杂很容易，把代码写简单很难，这里讲的是如何编写简单易读的代码">
     
     
-    <link rel="preload" href="/assets/css/18.styles.86e29389.css" as="style"><link rel="preload" href="/assets/js/app.53fe2d5b.js" as="script"><link rel="preload" href="/assets/js/9.511df93e.js" as="script"><link rel="prefetch" href="/assets/js/0.c1fc2059.js"><link rel="prefetch" href="/assets/js/1.cdd87188.js"><link rel="prefetch" href="/assets/js/2.f8dd5ba2.js"><link rel="prefetch" href="/assets/js/3.cf1a97b2.js"><link rel="prefetch" href="/assets/js/4.8101519d.js"><link rel="prefetch" href="/assets/js/5.d471490c.js"><link rel="prefetch" href="/assets/js/6.c3d420d1.js"><link rel="prefetch" href="/assets/js/7.bf8274b5.js"><link rel="prefetch" href="/assets/js/8.cbec0534.js"><link rel="prefetch" href="/assets/js/10.a3cd8761.js"><link rel="prefetch" href="/assets/js/11.e0739a71.js"><link rel="prefetch" href="/assets/js/12.0f5c20da.js"><link rel="prefetch" href="/assets/js/13.b98277b1.js"><link rel="prefetch" href="/assets/js/14.b374b16a.js"><link rel="prefetch" href="/assets/js/15.0c458270.js"><link rel="prefetch" href="/assets/js/16.8402636e.js"><link rel="prefetch" href="/assets/js/17.010a3d5c.js">
+    <link rel="preload" href="/assets/css/18.styles.86e29389.css" as="style"><link rel="preload" href="/assets/js/app.42ad17ad.js" as="script"><link rel="preload" href="/assets/js/9.22619da1.js" as="script"><link rel="prefetch" href="/assets/js/0.0106e158.js"><link rel="prefetch" href="/assets/js/1.3c0c79d1.js"><link rel="prefetch" href="/assets/js/2.f8dd5ba2.js"><link rel="prefetch" href="/assets/js/3.cf1a97b2.js"><link rel="prefetch" href="/assets/js/4.1d529e69.js"><link rel="prefetch" href="/assets/js/5.d471490c.js"><link rel="prefetch" href="/assets/js/6.c3d420d1.js"><link rel="prefetch" href="/assets/js/7.bf8274b5.js"><link rel="prefetch" href="/assets/js/8.cbec0534.js"><link rel="prefetch" href="/assets/js/10.a3cd8761.js"><link rel="prefetch" href="/assets/js/11.e0739a71.js"><link rel="prefetch" href="/assets/js/12.0f5c20da.js"><link rel="prefetch" href="/assets/js/13.b98277b1.js"><link rel="prefetch" href="/assets/js/14.b374b16a.js"><link rel="prefetch" href="/assets/js/15.0c458270.js"><link rel="prefetch" href="/assets/js/16.8402636e.js"><link rel="prefetch" href="/assets/js/17.063cedd5.js">
     <link rel="stylesheet" href="/assets/css/18.styles.86e29389.css">
   </head>
   <body>
@@ -56,7 +56,7 @@
 </code></pre><p>上面的函数，看函数定义你只知道更新了用户对象，但你不知道更新了用户的什么信息。建议写成下面这样：</p><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateUserNickName</span><span class="token punctuation">(</span><span class="token keyword">long</span> userId<span class="token punctuation">,</span> String nickname<span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token comment">//更新代码</span>
 <span class="token punctuation">}</span>
-</code></pre><p>你就算不看方法名，只看参数就能知道这个函数只更新了nickname一个字段。多好啊！这是一种思路，并部是说每一个方法都要写成这样。</p><h2 id="把可能变化的地方封装成函数"><a href="#把可能变化的地方封装成函数" aria-hidden="true" class="header-anchor">#</a> 把可能变化的地方封装成函数</h2><p>编写函数的总体指导思想是抽象和封装，你要把代码的逻辑抽象出来封装成为一个函数，以应对将来可能的变化。以后代码逻辑有变更的时候，单独修改和测试这个函数即可。</p><p>这一点相当重要，否则你会觉得怎么需求老变？改代码烦死了。</p><p>如何识别可能变的地方，多思考一下就知道了，工作久了就知道了。比如，开发初期，业务说只有管理员才可以删除某个对象，你就应该考虑到后面可能除了管理员，其他角色也可能可以删除，或者说对象的创建者也可以删除，这就是将来潜在的变化，你写代码的时候就要埋下伏笔，把是否能删除做成一个函数。后面需求变更的时候，你就只需要改一个函数。</p><p>举例，删除配置项的逻辑，判断一下只有是自己创建的配置项才可以删除，一开始代码是这样的：</p><pre class="language-java"><code><span class="token comment">/**
+</code></pre><p>你就算不看方法名，只看参数就能知道这个函数只更新了nickname一个字段。多好啊！这是一种思路，但并不是说每一个方法都要写成这样。</p><h2 id="把可能变化的地方封装成函数"><a href="#把可能变化的地方封装成函数" aria-hidden="true" class="header-anchor">#</a> 把可能变化的地方封装成函数</h2><p>编写函数的总体指导思想是抽象和封装，你要把代码的逻辑抽象出来封装成为一个函数，以应对将来可能的变化。以后代码逻辑有变更的时候，单独修改和测试这个函数即可。</p><p>这一点相当重要，否则你会觉得怎么需求老变？改代码烦死了。</p><p>如何识别可能变的地方，多思考一下就知道了，工作久了就知道了。比如，开发初期，业务说只有管理员才可以删除某个对象，你就应该考虑到后面可能除了管理员，其他角色也可能可以删除，或者说对象的创建者也可以删除，这就是将来潜在的变化，你写代码的时候就要埋下伏笔，把是否能删除做成一个函数。后面需求变更的时候，你就只需要改一个函数。</p><p>举例，删除配置项的逻辑，判断一下只有是自己创建的配置项才可以删除，一开始代码是这样的：</p><pre class="language-java"><code><span class="token comment">/**
  * 删除配置项
  */</span>
 <span class="token annotation punctuation">@Override</span>
@@ -125,6 +125,6 @@
           配置规范
         </a> →
       </span></p></div></div></div></div>
-    <script src="/assets/js/9.511df93e.js" defer></script><script src="/assets/js/app.53fe2d5b.js" defer></script>
+    <script src="/assets/js/9.22619da1.js" defer></script><script src="/assets/js/app.42ad17ad.js" defer></script>
   </body>
 </html>

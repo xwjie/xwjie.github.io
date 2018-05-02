@@ -41,16 +41,16 @@ public static boolean isEmpty(String str) {
 所以，我们需要定义自己的工具类函数，一开始我定义成这样子。
 
 ```java
-public void copyAttribute(Object source, Object dest) {
+public static void copyAttribute(Object source, Object dest) {
   org.springframework.beans.BeanUtils.copyProperties(source, dest);
 }
 ```
 
-后面需要修改为 `commons-beanutis` 的时候，我们改成这样即可，把参数顺序掉过来，然后处理了一下异常，我使用的是 `Lombok` 的 `@SneakyThrows` 来处理异常，你也可以捕获掉抛出运行时异常，个人喜好。
+后面需要修改为 `commons-beanutis` 的时候，我们改成这样即可，把参数顺序掉过来，然后处理了一下异常，我使用的是 `Lombok` 的 `@SneakyThrows` 来保证异常，你也可以捕获掉抛出运行时异常，个人喜好。
 
 ```java
 @SneakyThrows
-public void copyAttribute(Object source, Object dest) {
+public static void copyAttribute(Object source, Object dest) {
   org.apache.commons.beanutils.BeanUtils.copyProperties(dest, source);
 }
 ```

@@ -82,7 +82,7 @@ public void updateUserNickName(long userId, String nickname){
 }
 ```
 
-你就算不看方法名，只看参数就能知道这个函数只更新了nickname一个字段。多好啊！这是一种思路，并部是说每一个方法都要写成这样。
+你就算不看方法名，只看参数就能知道这个函数只更新了nickname一个字段。多好啊！这是一种思路，但并不是说每一个方法都要写成这样。
 
 
 ## 把可能变化的地方封装成函数
