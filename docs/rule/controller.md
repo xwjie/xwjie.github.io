@@ -8,8 +8,55 @@
 
 ## 统一返回ResultBean对象
 
-所有函数返回统一的ResultBean/PageResultBean格式，原因见我的接口定义这个贴。没有统一格式，AOP无法玩。当然类名你可以按照自己喜好随便定义，如就叫Result。
+所有函数返回统一的ResultBean/PageResultBean格式，原因见我的接口定义这个贴。没有统一格式，AOP无法玩，更加重要的是前台代码很不好写。当然类名你可以按照自己喜好随便定义，如就叫Result。
 
+大家都知道，前台代码很难写好做到重用，而我们返回相同数据结构后，前台代码可以这样写（方法handlerResult的重用）：
+
+```javascript
+// 查询所有配置项记录
+function fetchAllConfigs() {
+  $.getJSON('config/all', function(result) {
+    handlerResult(result, renderConfigs);
+  });
+}
+
+// 根据id删除配置项
+function deleteConfig(id) {
+  $.post('config/delete', {
+    id : id
+  }, function(result) {
+    console.log('delete result', result);
+    handlerResult(result, fetchAllConfigs);
+  });
+}
+
+/**
+  * 后台返回相同的数据结构，前台的代码才好写才能重用
+  * @param result： ajax返回的结果
+	* @param fn： 成功的处理函数（传入data）
+  */
+function handlerResult(result, fn) {
+  // 成功执行操作，失败提示原因
+  if (result.code == 0) {
+    fn(result.data);
+  }
+  // 没有登陆异常，重定向到登陆页面
+  else if (result.code == -1) {
+    showError("没有登录");
+  }
+  // 参数校验出错，直接提示
+  else if (result.code == 1) {
+    showError(result.msg);
+  }
+  // 没有权限，显示申请权限电子流
+  else if (result.code == 2) {
+    showError("没有权限");	
+  } else {
+    // 不应该出现的异常，应该重点关注
+    showError(result.msg);
+  }
+}
+```
 
 ## ResultBean不允许往后传
 
