@@ -12,7 +12,7 @@
 
 然后需要把`source\src\common`导入为源代码目录即可。（Eclipse里面在该目录选择右键 "Build Path" -> "Use as Source Folder"）
 
-![工程目录结构][./images/project2.png]
+![工程目录结构](./images/project2.png)
 
 启动项目，访问地址 `http://localhost:8080/plm` 即可。
 

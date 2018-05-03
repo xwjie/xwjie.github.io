@@ -33,7 +33,7 @@ function deleteConfig(id) {
 /**
   * 后台返回相同的数据结构，前台的代码才好写才能重用
   * @param result： ajax返回的结果
-	* @param fn： 成功的处理函数（传入data）
+  * @param fn： 成功的处理函数（传入data）
   */
 function handlerResult(result, fn) {
   // 成功执行操作，失败提示原因
