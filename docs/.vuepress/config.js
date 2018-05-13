@@ -12,6 +12,7 @@ module.exports = {
       { text: 'Ajax跨域详解', link: '/ajax/' },
       { text: 'WebFlux', link: '/webflux/' },
       { text: 'Vue', link: 'https://github.com/xwjie/VueStudyNote' },
+      { text: '联系我', link: '/me.md' },
       //{ text: '个人首页', link: 'http://www.xiaowenjie.cn' },
     ],
     sidebar:  {
