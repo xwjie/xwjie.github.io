@@ -31,7 +31,9 @@ module.exports = {
 	        'function',
 	        'config',
 	        'change',
-	        'github'
+	        'install',
+	        'github',
+	        
 	      ]
 	    }],
 		'/ajax/': [{
