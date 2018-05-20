@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>晓风轻技术小站 | Docker</title>
+    <meta name="description" content="把代码写复杂很容易，把代码写简单很难，这里讲的是如何编写简单易读的代码">
+    
+    
+    <link rel="preload" href="/assets/css/46.styles.0a8cfd8c.css" as="style"><link rel="preload" href="/assets/js/app.f6d9cdde.js" as="script"><link rel="preload" href="/assets/js/39.d1d5249e.js" as="script"><link rel="prefetch" href="/assets/js/11.ee49f07a.js"><link rel="prefetch" href="/assets/js/0.caeeb284.js"><link rel="prefetch" href="/assets/js/1.9893e035.js"><link rel="prefetch" href="/assets/js/2.5c7dcd68.js"><link rel="prefetch" href="/assets/js/3.ac143d6c.js"><link rel="prefetch" href="/assets/js/4.de9a971b.js"><link rel="prefetch" href="/assets/js/5.02edd53e.js"><link rel="prefetch" href="/assets/js/6.f0ccd0d8.js"><link rel="prefetch" href="/assets/js/7.c1706e59.js"><link rel="prefetch" href="/assets/js/8.86e23811.js"><link rel="prefetch" href="/assets/js/9.061e28be.js"><link rel="prefetch" href="/assets/js/10.3e9e6c20.js"><link rel="prefetch" href="/assets/js/12.66795260.js"><link rel="prefetch" href="/assets/js/13.013ad8f7.js"><link rel="prefetch" href="/assets/js/14.f9a4ae6a.js"><link rel="prefetch" href="/assets/js/15.18728a5b.js"><link rel="prefetch" href="/assets/js/16.69f41085.js"><link rel="prefetch" href="/assets/js/17.8af534d7.js"><link rel="prefetch" href="/assets/js/18.26edc294.js"><link rel="prefetch" href="/assets/js/19.7a108fcf.js"><link rel="prefetch" href="/assets/js/20.a5d665f4.js"><link rel="prefetch" href="/assets/js/21.c3719e6b.js"><link rel="prefetch" href="/assets/js/22.a79083ca.js"><link rel="prefetch" href="/assets/js/23.b50317ec.js"><link rel="prefetch" href="/assets/js/24.a1c045ec.js"><link rel="prefetch" href="/assets/js/25.dc5aa3d5.js"><link rel="prefetch" href="/assets/js/26.d162c961.js"><link rel="prefetch" href="/assets/js/27.aaa6e0e3.js"><link rel="prefetch" href="/assets/js/28.7f586bc9.js"><link rel="prefetch" href="/assets/js/29.310e4283.js"><link rel="prefetch" href="/assets/js/30.41712038.js"><link rel="prefetch" href="/assets/js/31.18da9b7c.js"><link rel="prefetch" href="/assets/js/32.516a46e4.js"><link rel="prefetch" href="/assets/js/33.cc769053.js"><link rel="prefetch" href="/assets/js/34.09d5ee8d.js"><link rel="prefetch" href="/assets/js/35.0ac4d778.js"><link rel="prefetch" href="/assets/js/36.c5fcd59a.js"><link rel="prefetch" href="/assets/js/37.26436d7e.js"><link rel="prefetch" href="/assets/js/38.99a36988.js"><link rel="prefetch" href="/assets/js/40.42209348.js"><link rel="prefetch" href="/assets/js/41.ff08100c.js"><link rel="prefetch" href="/assets/js/42.7d80196b.js"><link rel="prefetch" href="/assets/js/43.7c5aa3d4.js"><link rel="prefetch" href="/assets/js/44.a8551955.js"><link rel="prefetch" href="/assets/js/45.788e7b07.js">
+    <link rel="stylesheet" href="/assets/css/46.styles.0a8cfd8c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      晓风轻技术小站
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link">编程规范</a></div><div class="nav-item"><a href="/ajax/" class="nav-link">Ajax跨域详解</a></div><div class="nav-item"><a href="/webflux/" class="nav-link">WebFlux</a></div><div class="nav-item"><a href="https://github.com/xwjie/VueStudyNote" target="_blank" rel="noopener noreferrer" class="nav-link">Vue</a></div><div class="nav-item"><a href="/note/" class="nav-link router-link-active">零星笔记</a></div><div class="nav-item"><a href="/spring/" class="nav-link">Spring笔记</a></div><div class="nav-item"><a href="/me.html" class="nav-link">联系我</a></div><a href="https://github.com/xwjie" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rule/" class="nav-link">编程规范</a></div><div class="nav-item"><a href="/ajax/" class="nav-link">Ajax跨域详解</a></div><div class="nav-item"><a href="/webflux/" class="nav-link">WebFlux</a></div><div class="nav-item"><a href="https://github.com/xwjie/VueStudyNote" target="_blank" rel="noopener noreferrer" class="nav-link">Vue</a></div><div class="nav-item"><a href="/note/" class="nav-link router-link-active">零星笔记</a></div><div class="nav-item"><a href="/spring/" class="nav-link">Spring笔记</a></div><div class="nav-item"><a href="/me.html" class="nav-link">联系我</a></div><a href="https://github.com/xwjie" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>零星笔记</span><!----></p><ul class="sidebar-group-items"><li><a href="/note/" class="sidebar-link">笔记</a></li><li><a href="/note/basic.html" class="sidebar-link">什么才是java的基础知识？</a></li><li><a href="/note/web.html" class="sidebar-link">web</a></li><li><a href="/note/js.html" class="sidebar-link">javascript</a></li><li><a href="/note/cookie.html" class="sidebar-link">Cookie</a></li><li><a href="/note/nodejs.html" class="sidebar-link">nodejs</a></li><li><a href="/note/shell.html" class="sidebar-link">shell常用命令</a></li><li><a href="/note/npm.html" class="sidebar-link">npm</a></li><li><a href="/note/docker.html" class="active sidebar-link">Docker</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/note/docker.html#启动容器" class="sidebar-link">启动容器</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#进入镜像的shell" class="sidebar-link">进入镜像的shell</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#进入运行中的container" class="sidebar-link">进入运行中的container</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#copy文件进去或者copy出来" class="sidebar-link">copy文件进去或者copy出来</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#查看容器" class="sidebar-link">查看容器</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#docker容器中安装vim" class="sidebar-link">docker容器中安装vim</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#提交修改" class="sidebar-link">提交修改</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#rename-image" class="sidebar-link">rename image</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#delete-image" class="sidebar-link">delete image</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#容器操作" class="sidebar-link">容器操作</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#设置一些别名" class="sidebar-link">设置一些别名</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#下载boot2docker" class="sidebar-link">下载boot2docker</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#阿里云docker" class="sidebar-link">阿里云docker</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#搜索镜像" class="sidebar-link">搜索镜像</a></li><li class="sidebar-sub-header"><a href="/note/docker.html#daocloud" class="sidebar-link">daocloud</a></li></ul></li><li><a href="/note/maven.html" class="sidebar-link">Maven</a></li><li><a href="/note/session-fixation.html" class="sidebar-link">session fixation攻击</a></li><li><a href="/note/thumbnailator.html" class="sidebar-link">thumbnailator缩略图</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="docker"><a href="#docker" aria-hidden="true" class="header-anchor">#</a> Docker</h1><h2 id="启动容器"><a href="#启动容器" aria-hidden="true" class="header-anchor">#</a> 启动容器</h2><pre class="language-text"><code>docker run -it -p 80:80 -d &lt;image_id&gt;
+</code></pre><h2 id="进入镜像的shell"><a href="#进入镜像的shell" aria-hidden="true" class="header-anchor">#</a> 进入镜像的shell</h2><pre class="language-text"><code>docker run -t -i ubuntu /bin/bash
+</code></pre><p>官网是这么说的：</p><pre class="language-text"><code>docker run: runs a container.
+ubuntu: is the image you would like to run.
+-t: flag assigns a pseudo-tty or terminal inside the new container.
+-i: flag allows you to make an interactive connection by grabbing the standard in (STDIN) of the container.
+/bin/bash: launches a Bash shell inside our container.
+
+</code></pre><p>docker run：启动container
+ubuntu：你想要启动的image
+-t：进入终端
+-i：获得一个交互式的连接，通过获取container的输入
+/bin/bash：在container中启动一个bash shell</p><p>这样就进入container的内部了：</p><p>|root@af8bae53bdd3:/#</p><h2 id="进入运行中的container"><a href="#进入运行中的container" aria-hidden="true" class="header-anchor">#</a> 进入运行中的container</h2><pre class="language-text"><code>docker exec -it &lt;container_id&gt; bash
+</code></pre><h2 id="copy文件进去或者copy出来"><a href="#copy文件进去或者copy出来" aria-hidden="true" class="header-anchor">#</a> copy文件进去或者copy出来</h2><pre class="language-text"><code>docker cp ntuser.ini 09:/var/www/html
+docker cp 09:/var/www/html/index.html d:/
+</code></pre><p>09为containeid的前2位。</p><h2 id="查看容器"><a href="#查看容器" aria-hidden="true" class="header-anchor">#</a> 查看容器</h2><pre class="language-text"><code>docker ps 
+docker ps -a
+</code></pre><h2 id="docker容器中安装vim"><a href="#docker容器中安装vim" aria-hidden="true" class="header-anchor">#</a> docker容器中安装vim</h2><p>先 apt-get update  重新获取软件包列表 ， 然后 apt-get install vim 安装即可。</p><pre class="language-text"><code>apt-get install curl
+apt-get install net-tools //netstat
+</code></pre><h2 id="提交修改"><a href="#提交修改" aria-hidden="true" class="header-anchor">#</a> 提交修改</h2><pre class="language-text"><code>docker commit -a xiaofengqing -m 'install vim,curl,net-tools' a4 myubuntu
+</code></pre><h2 id="rename-image"><a href="#rename-image" aria-hidden="true" class="header-anchor">#</a> rename image</h2><p>iamge 无法重命名，只能用tag 新建一个</p><pre class="language-text"><code>docker tag &lt;image_id&gt; &lt;新名字&gt;
+</code></pre><h2 id="delete-image"><a href="#delete-image" aria-hidden="true" class="header-anchor">#</a> delete image</h2><pre class="language-text"><code>docker rmi &lt;image_id&gt;
+</code></pre><h2 id="容器操作"><a href="#容器操作" aria-hidden="true" class="header-anchor">#</a> 容器操作</h2><h3 id="重命名"><a href="#重命名" aria-hidden="true" class="header-anchor">#</a> 重命名</h3><pre class="language-text"><code>docker rename a1917ec9b776 ng
+</code></pre><h3 id="查看详细"><a href="#查看详细" aria-hidden="true" class="header-anchor">#</a> 查看详细</h3><pre class="language-text"><code>docker top ng
+</code></pre><h3 id="查看容器中运行着哪些进程"><a href="#查看容器中运行着哪些进程" aria-hidden="true" class="header-anchor">#</a> 查看容器中运行着哪些进程</h3><pre class="language-text"><code>docker top nginx_dist
+UID     PID      PPID     C     STIME     TTY    TIME         CMD
+root    24378    18471    0     15:25     ?      00:00:00     nginx: master process nginx -g daemon off;
+101     24433    24378    0     15:25     ?      00:00:00     nginx: worker process
+</code></pre><h3 id="查看容器ip和主机等信息"><a href="#查看容器ip和主机等信息" aria-hidden="true" class="header-anchor">#</a> 查看容器IP和主机等信息</h3><pre class="language-text"><code>docker inspect nginx_dist |grep 172.17
+        &quot;Gateway&quot;: &quot;172.17.42.1&quot;,
+        &quot;IPAddress&quot;: &quot;172.17.42.6&quot;,
+</code></pre><p>连接到容器上，--sig-proxy可以保证 Ctrl+D、Ctrl+C 不会退出</p><pre class="language-text"><code> docker attach --sig-proxy=false nginx_dist 
+</code></pre><h2 id="设置一些别名"><a href="#设置一些别名" aria-hidden="true" class="header-anchor">#</a> 设置一些别名</h2><pre class="language-text"><code>alias c='docker container ls'
+alias d='docker'
+alias i='docker images'
+alias ll='ls -l'
+alias ls='ls -F --color=auto --show-control-chars'
+alias r='docker run -i -t -d'
+</code></pre><h2 id="下载boot2docker"><a href="#下载boot2docker" aria-hidden="true" class="header-anchor">#</a> 下载boot2docker</h2><p>启动的时候会去github下载镜像，手工下载放到这个目录。(用迅雷下载，慢了就暂停再开始，能达到40-60k每秒)</p><p>(default) Downloading C:\Users\Administrator.docker\machine\cache\boot2docker.iso from https://github.com/boot2docker/boot2docker/releases/download/v17.11.0-ce/boot2docker.iso...</p><p>C:\Users\Administrator.docker\machine\cache\boot2docker.iso</p><p>刚刚过了几天，最新版怎么变成了下面的了？</p><p>(default) Downloading C:\Users\Administrator.docker\machine\cache\boot2docker.iso from https://github.com/boot2docker/boot2docker/releases/download/v17.09.1-ce/boot2docker.iso...</p><h2 id="阿里云docker"><a href="#阿里云docker" aria-hidden="true" class="header-anchor">#</a> 阿里云docker</h2><p>登录阿里云docker registry:</p><p>$ sudo docker login --username=xwjie2016 registry.cn-hangzhou.aliyuncs.com
+登录registry的用户名是您的阿里云账号全名，密码是您开通服务时设置的密码。</p><p>你可以在镜像管理首页点击右上角按钮修改docker login密码。</p><p>从registry中拉取镜像：</p><pre class="language-text"><code>$ sudo docker pull registry.cn-hangzhou.aliyuncs.com/xiaofengqing/main:[镜像版本号]
+将镜像推送到registry：
+
+$ sudo docker login --username=xwjie2016 registry.cn-hangzhou.aliyuncs.com
+$ sudo docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/xiaofengqing/main:[镜像版本号]
+$ sudo docker push registry.cn-hangzhou.aliyuncs.com/xiaofengqing/main:[镜像版本号]
+其中[ImageId],[镜像版本号]请你根据自己的镜像信息进行填写。
+</code></pre><h2 id="搜索镜像"><a href="#搜索镜像" aria-hidden="true" class="header-anchor">#</a> 搜索镜像</h2><p>https://dev.aliyun.com/search.html</p><p>搜索到之后，里面已经有命令，直接复制下来。</p><pre class="language-text"><code>docker pull registry.cn-zhangjiakou.aliyuncs.com/cytong/redis
+docker pull registry.cn-hangzhou.aliyuncs.com/wangbs/mongodb
+</code></pre><h2 id="daocloud"><a href="#daocloud" aria-hidden="true" class="header-anchor">#</a> daocloud</h2><p>http://026460a6.m.daocloud.io</p></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/note/npm.html" class="prev">
+          npm
+        </a></span><span class="next"><a href="/note/maven.html">
+          Maven
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/39.d1d5249e.js" defer></script><script src="/assets/js/app.f6d9cdde.js" defer></script>
+  </body>
+</html>

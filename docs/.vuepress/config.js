@@ -12,6 +12,8 @@ module.exports = {
       { text: 'Ajax跨域详解', link: '/ajax/' },
       { text: 'WebFlux', link: '/webflux/' },
       { text: 'Vue', link: 'https://github.com/xwjie/VueStudyNote' },
+      { text: '零星笔记', link: '/note/' },
+      { text: 'Spring笔记', link: '/spring/' },
       { text: '联系我', link: '/me.md' },
       //{ text: '个人首页', link: 'http://www.xiaowenjie.cn' },
     ],
@@ -53,10 +55,47 @@ module.exports = {
 	        'imooc'
 	      ]
 	    }],
-      '/css/': [
-        'three',
-        'four'
-      ]
+	    '/note/': [{
+         title: '零星笔记',
+	      collapsable: false,
+	      children: [
+	        '',
+	        'basic',
+	        'web',
+	        'js',
+	         'cookie',
+	         'nodejs',
+	         'shell',
+	         'npm',
+	         'docker',
+	         'maven',
+	         'session-fixation',
+	         'thumbnailator',
+	         
+	      ]
+         }],
+         '/spring/': [{
+         title: 'Spring笔记',
+	      collapsable: false,
+	      children: [
+	        '',
+	        'spring-beanpostprocessor',
+	        'spring-boot-json-format',
+	        'spring-boot-static',
+			'spring-inject-bean',
+			 'spring-boot-jsonp',
+			 'spring-form-code',
+			 'spring-i18n',
+			 'spring-aop',
+			 'spring-annotation',
+			 'spring-requestmapping',
+			 'jpa-page',
+			 'spring-boot-log-confilct',
+			 'spring-boot-support-jsp',
+			 
+			 
+	      ]
+         }]
     }
 	}, //themeConfig
     configureWebpack: {
