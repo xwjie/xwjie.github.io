@@ -12,3 +12,7 @@ const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperC
 // capitalizeEveryWord('hello world!') -> 'Hello World!'
 ```
 
+## 用 Object.keys 代替 for..in
+
+eslint: for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array  no-restricted-syntax
+

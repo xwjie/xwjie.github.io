@@ -52,7 +52,8 @@ module.exports = {
 	        '',
 	        'webflux-study-path',
 	        'async',
-	        'imooc'
+	        'sse',
+	        'imooc',
 	      ]
 	    }],
 	    '/note/': [{
@@ -61,8 +62,10 @@ module.exports = {
 	      children: [
 	        '',
 	        'basic',
+	        'jvm',
 	        'web',
 	        'js',
+	         'lambda',
 	         'cookie',
 	         'nodejs',
 	         'shell',
@@ -80,6 +83,7 @@ module.exports = {
 	      children: [
 	        '',
 	        'spring-beanpostprocessor',
+	        'async',
 	        'spring-boot-json-format',
 	        'spring-boot-static',
 			'spring-inject-bean',
