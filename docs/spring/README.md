@@ -5,6 +5,11 @@
 ## 注解
 * @EnableXXX
 * @EventListener
+* 多个bean `@Primary`
+```java
+@Bean(name = "A", initMethod = "init",destroyMethod="close" )
+@Primary
+```
 
 ## 接口
 * BeanDefinitionRegistryPostProcessor 接口的使用

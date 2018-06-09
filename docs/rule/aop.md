@@ -205,4 +205,8 @@ public class ConfigController {
 **有统一的接口定义规范，然后有AOP实现，先有思想再有技术**。技术不是关键，AOP技术也很简单，这个帖子的关键点不是技术，而是习惯和思想，不要捡了芝麻丢了西瓜。网络上讲技术的贴多，讲习惯、风格的少，这些都是我工作多年的行之有效的经验之谈，望有缘人珍惜。
 :::
 
+
+![晓风轻技术小站](http://www.xiaowenjie.cn/statics/gzh.jpg)
+
+
   [1]: http://www.imooc.com/article/27569

@@ -84,6 +84,8 @@ Contorller只做参数格式转换，如果没有参数需要转换的，那么�
 
 规范里面大部分是 **不要做的项多，要做的比较少**，落地比较容易。
 
+![晓风轻技术小站](http://www.xiaowenjie.cn/statics/gzh.jpg)
+
   [1]: http://www.imooc.com/article/27569
   [2]: http://www.imooc.com/article/27664
   [3]: //img.mukewang.com/5ae2af5a0001051b07090460.jpg

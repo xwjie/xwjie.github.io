@@ -99,3 +99,7 @@ public boolean add(xxx) {
 :::tip 晓风轻总结
 统一的接口规范，能帮忙规避很多无用的返工修改和可能出现的问题。能使代码可读性更加好，利于进行aop和自动化测试这些额外工作。大家一定要重视。
 :::
+
+
+![晓风轻技术小站](http://www.xiaowenjie.cn/statics/gzh.jpg)
+

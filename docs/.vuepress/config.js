@@ -74,7 +74,7 @@ module.exports = {
 	         'maven',
 	         'session-fixation',
 	         'thumbnailator',
-	         
+	         'other',
 	      ]
          }],
          '/spring/': [{
