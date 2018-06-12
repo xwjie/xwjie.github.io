@@ -3,7 +3,7 @@
 ## JavaScript 接收方
 
 ```js
-var evtSource = new EventSource("SSEServlet"); // 跨越加上  { withCredentials: true } 
+var evtSource = new EventSource("SSEServlet"); // 跨域加上  { withCredentials: true } 
 
 // 接收消息( 消息如果已经被EventListener处理后不会到这里）
 evtSource.onmessage = function(e) {

@@ -33,4 +33,4 @@ idea 中需要先安装tomcat插件。
 
 ## 工程界面
 
-![主界面](./images/main.png)
+![主界面](./images/plm.png)
