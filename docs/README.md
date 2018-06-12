@@ -19,6 +19,9 @@ features:
 footer: 晓风轻 Copyright © 2018
 ---
 
+# 《程序员你为什么这么累？》电子书打包下载
+
+[电子书（pdf，mobi，epub格式）下载](http://xiaowenjie.cn/download/xiaofengqingcoderule.rar)
 
 # 推荐文章
 
