@@ -195,5 +195,5 @@ public boolean delete(long id) {
 如我的编码习惯 - 配置规范这篇文章了，我的配置相关代码，都是可以单独测试的，所以配置项的改动不需要测试业务功能，应用都不需要重启。
 
 
-![晓风轻技术小站](http://www.xiaowenjie.cn/statics/gzh.jpg)
+
 

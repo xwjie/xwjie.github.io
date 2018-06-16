@@ -306,5 +306,5 @@ public void someServiceCode() {
 另外，代码里面是使用spring的习惯，没有spring也是一样的，或者配置的bean你不用spring注入，而用工具类获取也是一样，区别不大。
 
 
-![晓风轻技术小站](http://www.xiaowenjie.cn/statics/gzh.jpg)
+
 

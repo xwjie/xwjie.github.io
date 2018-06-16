@@ -258,6 +258,6 @@ public class UserUtil {
 日志是给人看的，只要热爱编程的人才能成为合格程序员，不要匆匆忙忙写完功能测试ok就提交代码，日志也是功能的一部分。要有精益求精的工匠精神！
 
 
-![晓风轻技术小站](http://www.xiaowenjie.cn/statics/gzh.jpg)
+
 
 

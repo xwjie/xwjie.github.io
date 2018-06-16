@@ -105,5 +105,5 @@
 :::
 
 
-![晓风轻技术小站](http://www.xiaowenjie.cn/statics/gzh.jpg)
+
 

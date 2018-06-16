@@ -206,7 +206,7 @@ public class ConfigController {
 :::
 
 
-![晓风轻技术小站](http://www.xiaowenjie.cn/statics/gzh.jpg)
+
 
 
   [1]: http://www.imooc.com/article/27569
