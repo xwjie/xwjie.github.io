@@ -29,6 +29,7 @@ footer: 晓风轻 Copyright © 2018
 * [什么才是java的基础知识？](/note/basic.md) 给初学者指明方向
 * [ajax跨域完全详解视频](https://www.imooc.com/learn/947) 由浅入深，抽丝剥茧，好评如潮
 * [Springboot2 Webflux学习路径](https://www.imooc.com/article/27181) 响应式编程的前置基础讲解好文！
+* [深入浅出Nodejs](/book/nodejs.md)
 
 
 # 作者新上课程

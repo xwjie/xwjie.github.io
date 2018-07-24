@@ -93,7 +93,9 @@ module.exports = {
 			 'spring-aop',
 			 'spring-annotation',
 			 'spring-requestmapping',
+			 'jpa',
 			 'jpa-page',
+			 'shiro',
 			 'spring-boot-log-confilct',
 			 'spring-boot-support-jsp',
 			 
