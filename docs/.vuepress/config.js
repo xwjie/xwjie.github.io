@@ -65,6 +65,7 @@ module.exports = {
 	        'jvm',
 	        'web',
 	        'js',
+	        'db',
 	         'lambda',
 	         'cookie',
 	         'nodejs',

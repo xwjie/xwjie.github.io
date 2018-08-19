@@ -24,5 +24,7 @@
   },
   "homepage": "https://github.com/xwjie/xwjie.github.io#readme",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "vuepress": "^0.14.2"
+  }
 }
